@@ -1,0 +1,49 @@
+title: inverze.io
+author: Balazs Greksza
+# email: your-email@domain.com
+notice: "Opinions are my own, and in no shape or form represent their inverzes"
+description: "Solving problems with technology, advocating security and privacy for the better. On a mission to teach thinking, share and exchange ideas.  #informationsecurity #dataprivacy #reverseengineering #incidentresponse #malware #forensics #penetrationtesting #cryptography #cybersecurity"
+
+url: https://inverze.io/
+urlimg: 'https://inverze.io/assets/img/'
+
+show_excerpts: true # set to true to show excerpts on the homepage
+minima:
+  date_format: "%b %-d, %Y"
+
+  # generate social links in footer
+  social_links:
+    twitter: inverze_io
+    github:  inverze.io
+    # rss: rss
+    # dribbble: inverze
+    # facebook: inverze
+    # flickr:   inverze
+    instagram: inverzeio
+    linkedin: inverze
+    # pinterest: inverze
+    # youtube: inverze
+    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+    # youtube_channel_name: inverze
+    # telegram: inverze
+    # microdotblog: jekyll
+
+    # Mastodon instances
+    # mastodon:
+    # - username: inverze
+    #   instance: example.com
+
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+#header_pages:
+# - about.md
+include:
+  - "assets/_img"
+  - "assets/img"
+# Build settings
+theme: minima
+
+plugins:
+ - jekyll-feed
+ - jekyll-seo-tag
