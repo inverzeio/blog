@@ -1,3 +1,5 @@
+.page__content { text-align: justify; text-justify: inter-word; }
+
 /** Reset some basic elements */
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
 
@@ -52,9 +54,9 @@ pre { padding: 8px 12px; overflow-x: auto; }
 pre > code { border: 0; padding-right: 0; padding-left: 0; }
 
 /** Wrapper */
-.wrapper { max-width: -webkit-calc(800px - (30px)); max-width: calc(800px - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
+.wrapper { max-width: -webkit-calc(65% - (30px)); max-width: calc(65% - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
 
-@media screen and (min-width: 800px) { .wrapper { max-width: -webkit-calc(800px - (30px * 2)); max-width: calc(800px - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
+@media screen and (min-width: 800px) { .wrapper { max-width: -webkit-calc(65% - (30px * 2)); max-width: calc(65% - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
 
 /** Clearfix */
 .footer-col-wrapper:after, .wrapper:after { content: ""; display: table; clear: both; }
@@ -338,5 +340,48 @@ form.contact-form input:focus + label, form.contact-form textarea:focus + label 
 .highlight .vi { color: #008080; }
 
 .highlight .il { color: #099; }
+
+/* Share Bar */
+#share-bar { font-size: 20px; }
+
+/* Title */
+#share-bar h4 { margin-bottom: 10px; font-weight: 500; }
+
+/* All buttons */
+/* Each button */
+.share-button { margin: 0px; margin-bottom: 10px; margin-right: 3px; border: 1px solid #D3D6D2; padding: 5px 10px 5px 10px; }
+
+.share-button:hover { opacity: 1; color: #ffffff; }
+
+/* Facebook button */
+.fa-facebook-official { color: #3b5998; }
+
+.fa-facebook-official:hover { background-color: #3b5998; }
+
+/* Twitter button */
+.fa-twitter { color: #55acee; }
+
+.fa-twitter:hover { background-color: #55acee; }
+
+/* Google-PLus button .fa-google-plus { color: #dd4b39; } .fa-google-plus:hover { background-color: #dd4b39; } Pinterest button .fa-pinterest-p { color: #cb2027; } .fa-pinterest-p:hover { background-color: #cb2027; } */
+/* Tumblr button */
+.fa-tumblr { color: #32506d; }
+
+.fa-tumblr:hover { background-color: #32506d; }
+
+/* Reddit button */
+.fa-reddit-alien { color: #ff4500; }
+
+.fa-reddit-alien:hover { background-color: #ff4500; }
+
+/* LinkedIn button */
+.fa-linkedin { color: #007bb5; }
+
+.fa-linkedin:hover { background-color: #007bb5; }
+
+/* Email button */
+.fa-envelope { color: #444444; }
+
+.fa-envelope:hover { background-color: #444444; }
 
 /*# sourceMappingURL=style.css.map */
