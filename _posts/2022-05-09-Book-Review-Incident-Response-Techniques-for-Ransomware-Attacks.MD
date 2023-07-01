@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Book Review - Incident Response Techniques for Ransomware Attacks"
+author: Balazs Greksza
 date:   2022-05-09 00:00:00 +0000
 categories: ransomware, book
 permalink: /blog/:title/
