@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Detection Surface - Loggable to Detectable"
+title:  "Detection Surface Series: 1) Loggable to Detectable"
 author: Balazs Greksza
 date:   2023-07-01 01:00:00 +0200
 categories: detectionengineering, logging, appdev
@@ -44,7 +44,7 @@ For instance, authentication events are almost always logged in every commercial
 
 The key however is the aforementioned `security relevancy`. This cannot be very easily defined, however you may have a pretty good idea about it.
 
-Verbosity vs. Conciseness
+Start Concise
 --------------------
 
 Let's take a random web project, for demonstration purposes I am borrowing some basic code regarding logging, from the [Flask Logging](https://flask.palletsprojects.com/en/2.3.x/logging/) documentation.
@@ -73,6 +73,10 @@ user_bob logged in successfully
 user_alice logged in successfully
 mallory logged in successfully
 {% endhighlight %}
+
+
+Add Verbosity
+--------------------
 
 Of course, we can add timestamps and context, and follow some additional guidelines, but we still won't be able to see any change, that a user would make (for example if `mallory` was created using user_bob's account, after successfully brute-forcing it's password) could be of interest, say initiate a payment, change it's phone and recovery email address to steal an account, etc.
 Such transactions may contain personally identifiable information(PII) or details of the system, that should not be openly shared in a logfile. The reason is, that transactional events should belong to a database, that has limited access, and not dumped into a logfile. 
@@ -128,6 +132,6 @@ We may think that login from an external IP address is not desired, and that mal
 
 Adding further attributes such as timestamp, http response codes, user agents, authentication type, can all be useful to add context and make events **detectable**, but will increase the application development cost, and after a certain point can increase verbosity unnecessarily without adding actual detection engineering value.
 
-This is the first post of  series of posts, to check out the next ones:
+This is the first of a series of posts, to check out the next ones:
 
-Detection Surface - Security Relevancy
+Detection Surface - 2) Security Relevancy
