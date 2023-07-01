@@ -24,27 +24,6 @@ A simplifying concept was much needed, and as such, the Forrester team defined d
 `Detection surface directly parallels attack surface.`
 `It describes the IT assets upon which we can detect attacker activity, much like attack surface describes the IT assets within an estate."`
 
-Do we have Detections for this?
-----------------------------------
-
-Forrester (Allie Mellen) just shared a [wonderful article](https://www.forrester.com/blogs/introducing-detection-surface-the-cybersecurity-defense-that-parallels-attack-surface/) coining the quintessential term `Detection Surface`. It is a recurring topic amongst Cybersecurity professionals, when talking about what is possible to monitor, detect, and respond to.
-
-A simplifying concept was much needed, and as such, the Forrester team defined detection surface as:
-
-{% highlight ruby %} 
-"The IT asset type upon which detection of attacker activity occurs. Detection surface directly parallels attack surface. It describes the IT assets upon which we can detect attacker activity, much like attack surface describes the IT assets within an estate."
-{% endhighlight %}
-
-Loggable to Detectable
---------------------
-
-The basics of logging are as follows:
-
-![logging_activity_diagram]({{urlimg}}/assets/img/logging_activity_diagram.jpg)
-
-Note that there are many steps involved in this process. It all starts with, "do we even really want to log and monitor this activity?"
-In a hypothetical world, a security professional's dream answer would be, "Yes, and every single action that may represent a `security relevant` event should indeed be logged."
-
 So what is worth logging?
 --------------------
 
@@ -138,7 +117,7 @@ def login():
         abort(401)
 {% endhighlight %}
 
-This definitely add context:
+This definitely adds context:
 
 {% highlight ruby %}
 user_alice logged in successfully from IP 10.10.10.23
@@ -154,7 +133,6 @@ We may think that login from an external IP address is not desired, and that mal
 
 Adding further attributes such as timestamp, http response codes, user agents, authentication type, can all be useful to add context and make events **detectable**, but will increase the application development cost, and after a certain point can increase verbosity unnecessarily without adding actual detection engineering value.
 
-<<<<<<< HEAD
 This is the first of a series of posts, to check out the next ones:
 
 Detection Surface - 2) Security Relevancy

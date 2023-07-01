@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://inverze.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://inverze.io//" rel="alternate" type="text/html" /><updated>2023-06-30T18:57:58-07:00</updated><id>https://inverze.io//feed.xml</id><title type="html">inverze.io</title><subtitle>Solving problems with technology, advocating security and privacy for the better. On a mission to teach thinking, share and exchange ideas.  #informationsecurity #dataprivacy #reverseengineering #incidentresponse #malware #forensics #penetrationtesting #cryptography #cybersecurity</subtitle><author><name>Balazs Greksza</name></author><entry><title type="html">Detection Surface Series: 1) Loggable to Detectable</title><link href="https://inverze.io//blog/Detection-Surface-Series-Loggable-to-Detectable/" rel="alternate" type="text/html" title="Detection Surface Series: 1) Loggable to Detectable" /><published>2023-06-30T16:00:00-07:00</published><updated>2023-06-30T16:00:00-07:00</updated><id>https://inverze.io//blog/Detection-Surface-Series-Loggable-to-Detectable</id><content type="html" xml:base="https://inverze.io//blog/Detection-Surface-Series-Loggable-to-Detectable/">&lt;p&gt;The basic activity diagram of security logging is as follows:
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://inverze.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://inverze.io//" rel="alternate" type="text/html" /><updated>2023-06-30T19:05:03-07:00</updated><id>https://inverze.io//feed.xml</id><title type="html">inverze.io</title><subtitle>Solving problems with technology, advocating security and privacy for the better. On a mission to teach thinking, share and exchange ideas.  #informationsecurity #dataprivacy #reverseengineering #incidentresponse #malware #forensics #penetrationtesting #cryptography #cybersecurity</subtitle><author><name>Balazs Greksza</name></author><entry><title type="html">Detection Surface Series: 1) Loggable to Detectable</title><link href="https://inverze.io//blog/Detection-Surface-Series-Loggable-to-Detectable/" rel="alternate" type="text/html" title="Detection Surface Series: 1) Loggable to Detectable" /><published>2023-06-30T16:00:00-07:00</published><updated>2023-06-30T16:00:00-07:00</updated><id>https://inverze.io//blog/Detection-Surface-Series-Loggable-to-Detectable</id><content type="html" xml:base="https://inverze.io//blog/Detection-Surface-Series-Loggable-to-Detectable/">&lt;p&gt;The basic activity diagram of security logging is as follows:
 &lt;img src=&quot;/assets/img/logging_activity_diagram.jpg&quot; alt=&quot;logging_activity_diagram&quot; /&gt;
 Note that there are many steps involved in this process. It all starts with, “do we even really want to log and monitor this activity?”
 In a hypothetical world, a security professional’s dream answer would be, “Yes, and every single action that may represent a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;security relevant&lt;/code&gt; event should indeed be logged.”&lt;/p&gt;
@@ -12,24 +12,6 @@ In a hypothetical world, a security professional’s dream answer would be, “Y
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;The IT asset type upon which detection of attacker activity occurs.&lt;/code&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Detection surface directly parallels attack surface.&lt;/code&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;It describes the IT assets upon which we can detect attacker activity, much like attack surface describes the IT assets within an estate.&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;do-we-have-detections-for-this&quot;&gt;Do we have Detections for this?&lt;/h2&gt;
-
-&lt;p&gt;Forrester (Allie Mellen) just shared a &lt;a href=&quot;https://www.forrester.com/blogs/introducing-detection-surface-the-cybersecurity-defense-that-parallels-attack-surface/&quot;&gt;wonderful article&lt;/a&gt; coining the quintessential term &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Detection Surface&lt;/code&gt;. It is a recurring topic amongst Cybersecurity professionals, when talking about what is possible to monitor, detect, and respond to.&lt;/p&gt;
-
-&lt;p&gt;A simplifying concept was much needed, and as such, the Forrester team defined detection surface as:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
-&lt;span class=&quot;s2&quot;&gt;&quot;The IT asset type upon which detection of attacker activity occurs. Detection surface directly parallels attack surface. It describes the IT assets upon which we can detect attacker activity, much like attack surface describes the IT assets within an estate.&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;loggable-to-detectable&quot;&gt;Loggable to Detectable&lt;/h2&gt;
-
-&lt;p&gt;The basics of logging are as follows:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/logging_activity_diagram.jpg&quot; alt=&quot;logging_activity_diagram&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Note that there are many steps involved in this process. It all starts with, “do we even really want to log and monitor this activity?”
-In a hypothetical world, a security professional’s dream answer would be, “Yes, and every single action that may represent a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;security relevant&lt;/code&gt; event should indeed be logged.”&lt;/p&gt;
 
 &lt;h2 id=&quot;so-what-is-worth-logging&quot;&gt;So what is worth logging?&lt;/h2&gt;
 
@@ -109,7 +91,7 @@ This will also mean, that for example in our example flask application routing w
         app.logger.info('%s failed to log in from IP %s', user.username, user.lastip)
         abort(401)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;This definitely add context:&lt;/p&gt;
+&lt;p&gt;This definitely adds context:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;user_alice&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logged&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;successfully&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IP&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;10.10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;10.23&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;user_bob&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;failed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;51.37&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;81.9&lt;/span&gt;
@@ -123,8 +105,7 @@ This will also mean, that for example in our example flask application routing w
 
 &lt;p&gt;Adding further attributes such as timestamp, http response codes, user agents, authentication type, can all be useful to add context and make events &lt;strong&gt;detectable&lt;/strong&gt;, but will increase the application development cost, and after a certain point can increase verbosity unnecessarily without adding actual detection engineering value.&lt;/p&gt;
 
-&lt;p&gt;«««&amp;lt; HEAD
-This is the first of a series of posts, to check out the next ones:&lt;/p&gt;
+&lt;p&gt;This is the first of a series of posts, to check out the next ones:&lt;/p&gt;
 
 &lt;p&gt;Detection Surface - 2) Security Relevancy&lt;/p&gt;</content><author><name>Balazs Greksza</name></author><category term="detectionengineering," /><category term="logging," /><category term="appdev" /><category term="detectionengineering" /><category term="logging," /><category term="appdev" /><summary type="html">The basic activity diagram of security logging is as follows: Note that there are many steps involved in this process. It all starts with, “do we even really want to log and monitor this activity?” In a hypothetical world, a security professional’s dream answer would be, “Yes, and every single action that may represent a security relevant event should indeed be logged.”</summary></entry><entry><title type="html">Malware Analysis - Zloader</title><link href="https://inverze.io//blog/Malware-Analysis-Zloader/" rel="alternate" type="text/html" title="Malware Analysis - Zloader" /><published>2022-05-09T02:00:00-07:00</published><updated>2022-05-09T02:00:00-07:00</updated><id>https://inverze.io//blog/Malware-Analysis-Zloader</id><content type="html" xml:base="https://inverze.io//blog/Malware-Analysis-Zloader/">&lt;h2 id=&quot;campaign-information&quot;&gt;Campaign Information&lt;/h2&gt;
 &lt;p&gt;In 2021 September, I came across a (then) recent sample for Zloader. After finishing with most of the static analysis steps, I noticed there is already existing &lt;a href=&quot;https://assets.sentinelone.com/sentinellabs/SentinelLabs-Zloader&quot;&gt;research on this by SentinelOne&lt;/a&gt;, but I thought carrying on with the analysis will be good practice and use of my time.
