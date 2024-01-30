@@ -2,7 +2,7 @@
 layout: post
 title:  "Detection Surface Series: 1) Loggable to Detectable"
 author: Balazs Greksza
-date:   2023-07-01 01:00:00 +0200
+date:   2024-00-31 01:00:00 +0200
 categories: detectionengineering, logging, appdev
 permalink: /blog/:title/
 tags: detectionengineering logging, appdev
@@ -119,7 +119,7 @@ mallory logged in successfully 51.37.81.9
 
 We may think that login from an external IP address is not desired, and that mallory is perhaps a newly created user, not following the user naming conventions(`user_`), and perhaps added by `bob` after a successful attack.
 
-Adding further attributes such as timestamp, http response codes, user agents, authentication type, can all be useful to add context and make events **detectable**, but will increase the application development cost, and after a certain point can increase verbosity unnecessarily without adding actual detection engineering value.
+Adding further attributes such as **timestamp**, **http response codes**, **user agents**, **authentication type**, can all be useful to add **context** and make events **detectable**, and will increase the application development cost, and after a certain point can add unnecessarily verbosity without adding actual detection engineering value.
 
 This is the first of a series of posts, to check out the next ones:
 
