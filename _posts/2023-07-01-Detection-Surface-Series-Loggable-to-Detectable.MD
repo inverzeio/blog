@@ -99,22 +99,10 @@ alice = User("user_alice", "Alice Allister", "finance_admin", "aalice@abc.com", 
 {% endhighlight %}
 
 We can refer to each property of alice with it's property, such as `alice.name` or `alice.lastip`
-This will also mean, that for example in our example flask application routing we will also have to handle the user's IP address. Note: It's only pseudocode, for easy reading, didn't bother add methods and *fstrings* in the class to keep very easy readability.
+This will also mean, that in our example flask application routing we will also have to handle the user's IP address. Note: It's all pseudocode, for very easy readability. Also, Flask-Security has solved Flask-Login already.
 
 {% highlight ruby %}
-from flask import request
 
-@app.route('/login', methods=['GET'])
-def login():
-    user = get_user(request.form['username'])
-    lastip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) //accessing the IP of the user
-    if user.check_password(request.form['password']):
-        login_user(user)
-        app.logger.info('%s logged in successfully from IP %s', user.username, user.lastip)
-        return redirect(url_for('index'))
-    else:
-        app.logger.info('%s failed to log in from IP %s', user.username, user.lastip)
-        abort(401)
 {% endhighlight %}
 
 This definitely adds context:
@@ -129,7 +117,7 @@ user_alice logged in successfully 10.10.10.20
 mallory logged in successfully 51.37.81.9
 {% endhighlight %}
 
-We may think that login from an external IP address is not desired, and that mallory is perhaps a newly created user, not following the user naming conventions(user_), and perhaps added by bob after a successful attack.
+We may think that login from an external IP address is not desired, and that mallory is perhaps a newly created user, not following the user naming conventions(`user_`), and perhaps added by `bob` after a successful attack.
 
 Adding further attributes such as timestamp, http response codes, user agents, authentication type, can all be useful to add context and make events **detectable**, but will increase the application development cost, and after a certain point can increase verbosity unnecessarily without adding actual detection engineering value.
 
