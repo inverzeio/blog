@@ -15,7 +15,8 @@ It will help you to protect your primary email address that you care about, simp
 Why should you do this?
 --------------------
 Personally, I have been fed up with all the data breaches that happened to my data, including some companies repeatedly losing my data, that has been reported in [haveibeenpawned](https://haveibeenpwned.com/). 
-Also, I am pretty curious about data breaches - see the slides of my talk I gave last year for security managers and auditors, [here](https://github.com/inverzeio/talks)
+Also, I am pretty curious about data breaches - see the slides of my talk I gave last year for security managers and auditors, [here](https://github.com/inverzeio/talks).
+
 What annoys me even more is the “We care about your privacy” statements after a breach or completely denying responsibility, such as the recent 23and me breach, where hackers stole DNA data of 6.9 million users. 
 
 Critical health information must be protected by law, and negligent businesses don’t deserve to operate with permanent biomarkers, period.(DNA, retina/iris scan, fingerprint etc.). 
@@ -54,7 +55,7 @@ Create Folders and Rules
 --------------------
 The second best way is to organize. Think about it is like a news feed. Any service that sends you regular emails should land in a folder, to keep your Inbox for important contacts clean.
 
-Reregister
+Re-register with dummies
 --------------------
 This is the most painful part for sure. I went ahead, logged in to all important services and replaced all the old email addresses, so there remains no record of my prior private address.
 
@@ -72,7 +73,10 @@ Of course, you could do similar tricks in other email services as well, or creat
 
 I will also be informed about all the times providers misbehave, start sharing my email with others, or get breached, and if I am particularly unhappy, I can start rating them in their public profiles(Trustpilot, etc.) saying they didn’t treat my data well and I am now no longer a customer - hopefully driving some accountability.
 
-Note: I have no affiliation to Proton, but am a very happy customer, and as a shameless plug here is my [Referral Link](https://pr.tn/ref/QHQ345GN4CN0), if you are interested in their free trial. 
+Disclaimer
+--------------------
+
+I have no affiliation to Proton, but am a very happy customer, and as a shameless plug here is my [Referral Link](https://pr.tn/ref/QHQ345GN4CN0), if you are interested in their free trial. 
 Another good news, is the [Proton Pass service just got cheaper](https://pr.tn/ref/QHQ345GN4CN0)! Thanks Proton!
 
 Now go, and do yourself a favor!
