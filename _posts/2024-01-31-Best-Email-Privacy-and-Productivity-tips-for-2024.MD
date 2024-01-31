@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Best Email Privacy and Productivity tips for 2024"
+title:  "Best Email Privacy and Productivity Tips for 2024"
 author: Balazs Greksza
 date:   2024-01-31 09:00:00 +0200
 categories: privacy, productivity
@@ -66,9 +66,9 @@ Block the annoyments
 --------------------
 The moment I dislike something, I drop the dummy email, and get rid of unwanted emails(note, these are not really spam - you get them because you gave the email away, and perhaps it was shared further), so I can keep a clean inbox. 
 
-As an example - if you are interested in digital marketing for cats, and you sign up for a "free webinar”, download a pdf guide etc. that in the end (without your prior consent) shares your address and suddenly you start receiving sales emails from different companies offering you courses, paid versions of their products etc. Annoying, but now you can simply delete your Digitalmarketingforcats.catlover913@blabla.com and forget it ever existed - you can also chose to simply delete the alias right after your goal is achieved, preventing any further communication.
+As an example - if you are interested in digital marketing for cats, and you sign up for a "free webinar”, download a pdf guide etc. that in the end (without your prior consent) shares your address and suddenly you start receiving sales emails from different companies offering you courses, paid versions of their products etc. Annoying, but now you can simply delete your `Digitalmarketingforcats.catlover913@blabla.com` and forget it ever existed - you can also chose to simply delete the alias right after your goal is achieved, preventing any further communication.
 
-Of course, you could do similar tricks in other email services as well, or create a idontcareabouthisemail@<youremailprovider>.com , but that will become still pretty messy over time. Proton Pass allows me to track all of this very efficiently, link the alias with an identity(assign a unique password with it - more about it in the next blog), and create dummy emails for every single digital service I use.
+Of course, you could do similar tricks in other email services as well, or create a `idontcareabouthisemail@<youremailprovider>.com`, but that will become still pretty messy over time. Proton Pass allows me to track all of this very efficiently, link the alias with an identity(assign a unique password with it - more about it in the next blog), and create dummy emails for every single digital service I use.
 
 I will also be informed about all the times providers misbehave, start sharing my email with others, or get breached, and if I am particularly unhappy, I can start rating them in their public profiles(Trustpilot, etc.) saying they didn’t treat my data well and I am now no longer a customer - hopefully driving some accountability.
 
