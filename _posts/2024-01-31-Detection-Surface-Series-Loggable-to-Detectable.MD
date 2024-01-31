@@ -2,7 +2,7 @@
 layout: post
 title:  "Detection Surface Series: 1) Loggable to Detectable"
 author: Balazs Greksza
-date:   2024-00-31 01:00:00 +0200
+date:   2024-01-31 01:00:00 +0200
 categories: detectionengineering, logging, appdev
 permalink: /blog/:title/
 tags: detectionengineering logging, appdev
