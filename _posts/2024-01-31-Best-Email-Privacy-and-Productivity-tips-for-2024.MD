@@ -2,7 +2,7 @@
 layout: post
 title:  "Best Email Privacy and Productivity tips for 2024"
 author: Balazs Greksza
-date:   2024-01-31 00:00:00 +0200
+date:   2024-01-31 09:00:00 +0200
 categories: privacy, productivity
 permalink: /blog/:title/
 tags: privacy, productivity
