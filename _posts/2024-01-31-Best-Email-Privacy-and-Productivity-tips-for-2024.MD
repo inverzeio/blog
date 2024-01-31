@@ -33,13 +33,13 @@ With most other email providers it will look like your email address extended wi
 
 This then forwards emails to my real address with Proton:
 
-dummy email —> barrier —> my private e-mail
+`Dummy email → Barrier → My Private e-mail`
 
 Here is the typical process to add an alias with your current email provider:
 
-Settings → Email → Accounts → Aliases → Add an alias
+`Settings → Email → Accounts → Aliases → Add an Alias`
 
-You can simply DuckDuckGo search the specifics for your email provider: https://duckduckgo.com/?t=h_&q=how+to+add+an+email+alias+in+%3Cyour+email+provider%3E+mail
+You can simply [DuckDuckGo search the specifics for your email provider](https://duckduckgo.com/?t=h_&q=how+to+add+an+email+alias+in+%3Cyour+email+provider%3E+mail)
 
 Productivity
 --------------------
