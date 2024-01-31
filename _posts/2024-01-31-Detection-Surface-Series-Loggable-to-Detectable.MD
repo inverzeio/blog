@@ -119,8 +119,10 @@ mallory logged in successfully 51.37.81.9
 
 We may think that login from an external IP address is not desired, and that mallory is perhaps a newly created user, not following the user naming conventions(`user_`), and perhaps added by `bob` after a successful attack.
 
+Know when to Stop
+--------------------
 Adding further attributes such as **timestamp**, **http response codes**, **user agents**, **authentication type**, can all be useful to add **context** and make events **detectable**, and will increase the application development cost, and after a certain point can add unnecessarily verbosity without adding actual detection engineering value.
 
-This is the first of a series of posts, to check out the next ones:
+This is the first in the series of posts, check out the next ones:
 
-Detection Surface - 2) Security Relevancy
+[Detection Surface - Security Relevancy](https://inverze.io/blog/detection-surface-series-security-relevancy/)
