@@ -8,16 +8,15 @@ permalink: /blog/:title/
 tags: privacy, productivity
 ---
 
-One practical step towards a more responsible digital life that you can take in a few minutes is to use email aliases when registering to services. 
+One practical step towards a more responsible digital life - that you can take in a few minutes - is to use email aliases when registering to services. 
 It will help you to protect your primary email address that you care about, simplify your online presence(no need for multiple throwaway emails), knowing which contacts might have been misusing your data and recognise phishing much easier.
+![we_care]({{urlimg}}/assets/img/we_care.jpg)
 
 Why should you do this?
 --------------------
 Personally, I have been fed up with all the data breaches that happened to my data, including some companies repeatedly losing my data, that has been reported in [haveibeenpawned](https://haveibeenpwned.com/). 
 Also, I am pretty curious about data breaches - see the slides of my talk I gave last year for security managers and auditors, [here](https://github.com/inverzeio/talks)
 What annoys me even more is the “We care about your privacy” statements after a breach or completely denying responsibility, such as the recent 23and me breach, where hackers stole DNA data of 6.9 million users. 
-
-![we_care]({{urlimg}}/assets/img/we_care.jpg)
 
 Critical health information must be protected by law, and negligent businesses don’t deserve to operate with permanent biomarkers, period.(DNA, retina/iris scan, fingerprint etc.). 
 These are irreversible breaches that represent a perpetual breach - you can change a password, but you cannot change your DNA.
