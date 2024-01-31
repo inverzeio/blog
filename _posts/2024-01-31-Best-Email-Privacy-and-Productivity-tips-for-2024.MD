@@ -39,7 +39,7 @@ Here is the typical process to add an alias with your current email provider:
 
 `Settings → Email → Accounts → Aliases → Add an Alias`
 
-You can simply [DuckDuckGo search the specifics for your email provider](https://duckduckgo.com/?t=h_&q=how+to+add+an+email+alias+in+%3Cyour+email+provider%3E+mail)
+You can simply [DuckDuckGo search the specifics for your email provider](https://duckduckgo.com/?t=h_&q=how+to+add+an+email+alias+in+%3Cyour+email+provider%3E+mail){:target="_blank"}
 
 Productivity
 --------------------
