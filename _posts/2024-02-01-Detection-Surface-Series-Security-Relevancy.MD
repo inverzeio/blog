@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Detection Surface - Security Relevancy"
+title:  "Detection Surface Series: 2) - Security Relevancy"
 author: Balazs Greksza
 date:   2024-02-01 00:00:00 +0200
 categories: detectionengineering, logging
