@@ -1,15 +1,12 @@
 ---
 layout: post
-title:  "Detection Surface Series: 2) - Security Relevancy"
+title:  "Detection Surface Series: 2) Security Relevancy as an enabler of Visibility"
 author: Balazs Greksza
 date:   2024-02-01 19:00:00 +0200
 categories: detectionengineering, logging
 permalink: /blog/:title/
 tags: detectionengineering logging
 ---
-
-Security Relevancy as an enabler of Visibility
---------------------
 
 Let's consider the following thought experiment: imagine an information system, where we don't use any database for storing information, instead a system, where logging is *replacing* databases, and granular level permissions can be added to logs as well. After every action of an information system, we would create a logline, which may or may not be visible to different users: 
 - the application administrator would see everything including the code and the logs
