@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Detection Surface Series: 2) Security Relevancy as an enabler of Visibility"
+title:  "Detection Surface Series 2: Security Relevancy as an enabler of Visibility"
 author: Balazs Greksza
 date:   2024-02-01 19:00:00 +0200
 categories: detectionengineering, logging
