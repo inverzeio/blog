@@ -83,4 +83,4 @@ Without going much deeper into logging, we can acknowledge, that the best practi
 
 This is the second post of the series, check out rest:
 
-[Detection Surface - Loggable to Detectable](https://inverze.io/blog/detection-surface-series-loggable-to-detectable/)
+[Detection Surface Series: 1) Loggable to Detectable](https://inverze.io/blog/detection-surface-series-loggable-to-detectable/)
