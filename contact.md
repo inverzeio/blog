@@ -6,7 +6,7 @@ permalink: /contact/
 
 ------------
 
-<form class="contact-form" method="POST" data-netlify="true">
+<form class="contact-form" method="POST" data-netlify="true" data-netlify-recaptcha="true">
   <div>
     <input id="name" name="name" type="text" required>
     <label for="name">Your Name *</label>
