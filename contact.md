@@ -23,6 +23,7 @@ permalink: /contact/
     <textarea rows="4" cols="100" id="message" name="message" type="text" required></textarea>
     <label for="message">Message *</label>
   </div>
+    <div data-netlify-recaptcha="true"></div>
   <p>
     <button type="submit">Send</button>
   </p>
