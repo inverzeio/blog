@@ -1,12 +1,16 @@
 ---
 layout: page
-title: Media Appearances, Publications and Conference Talks
+title: media
 permalink: /media/
 ---
 ------------
 
+Media Appearances, Publications and Conference Talks
+
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 04/27/2024 | **Practical security challenges posed by AI adoption: Code Quality and Threat Modeling** ||
+| 04/27/2024 | [Public Talk: Practical security challenges posed by AI adoption: Code Quality and Threat Modeling] | [BSides Cymru](https://www.bsides.cymru/), Watch on YouTube(soon) |
 | 04/11/2024 | **Raspberry Robin Malware** ||
 | 04/11/2024 | [Raspberry Robin Malware Evolves with Sophisticated Evasion Tactics](https://www.secureworld.io/industry-news/raspberry-robin-malware) | [Secure World Magazine](https://www.secureworld.io) |
 | 04/10/2024 | [Raspberry Robin Observed Spreading via Windows Script Files](https://www.scmagazine.com/news/raspberry-robin-observed-spreading-via-windows-script-files) | [SC Magazine](https://www.scmagazine.com/) | 
@@ -37,3 +41,6 @@ permalink: /media/
 | 01/13/2024 | **JetBrains TeamCity Supply Chain Attack** ||
 | 12/21/2023 | [The JetBrains TeamCity software supply chain attack: Lessons learned](https://securityboulevard.com/2023/12/the-jetbrains-teamcity-software-supply-chain-attack-lessons-learned/) | [Security Boulevard](securityboulevard.com) | 
 | 12/21/2023 | [Jetbrains TeamCity Software Supply-chain Attack: A Sunburst Redux](https://www.reversinglabs.com/blog/jetbrains-teamcity-software-supply-chain-attack-a-sunburt-redux) | [Reversing Labs](https://www.reversinglabs.com) |
+| 01/10/2023 | **Data Breach Trends and Outlook January 2023** ||
+| 01/10/2023 | [Public Talk: Data Breach Trends and Outlook January 2023](https://github.com/inverzeio/talks/blob/main/Data_Breach_Trends_and_Outlook_Jan2023.pdf) | [ATED ICT Ticino](https://ated.ch/), [AIEA](https://www.aieaworld.org/), [ISACA Switzerland Chapter](https://engage.isaca.org/switzerlandchapter/home), [ISACA Milan Chapter](https://engage.isaca.org/milanchapter/home) in collaboration with [SUPSI Lugano](https://www.supsi.ch/en/home) |
+
