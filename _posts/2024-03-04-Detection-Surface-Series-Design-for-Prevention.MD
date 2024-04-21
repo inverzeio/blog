@@ -2,8 +2,8 @@
 layout: post
 title:  "Detection Surface Series 3: Design for Prevention Avoid Detecting Entirely"
 author: Balazs Greksza
-date:   2024-03-04 19:00:00 +0200
-categories: detectionengineering, logging, 
+date:   2024-04-21 17:00:00 +0200
+categories: detectionengineering, logging
 permalink: /blog/:title/
 tags: detectionengineering logging
 ---
