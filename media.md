@@ -1,11 +1,9 @@
 ---
 layout: page
-title: media
+title: Media Appearances, Publications and Conference Talks
 permalink: /media/
 ---
 ------------
-
-# Media Appearances, Publications and Conference Talks #
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
