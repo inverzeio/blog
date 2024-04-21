@@ -9,8 +9,8 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
-| 04/27/2024 | **Practical security challenges posed by AI adoption: Code Quality and Threat Modeling** ||
-| 04/27/2024 | [Public Talk: Practical security challenges posed by AI adoption: Code Quality and Threat Modeling] | [BSides Cymru](https://www.bsides.cymru/), Watch on YouTube(soon) |
+| 04/27/2024 | **Public Talk BSides Cymru 2024** ||
+| 04/27/2024 | Public Talk: Practical security challenges posed by AI adoption: Code Quality and Threat Modeling(soon) | [BSides Cymru](https://www.bsides.cymru/), Watch on YouTube(soon) |
 | 04/11/2024 | **Raspberry Robin Malware** ||
 | 04/11/2024 | [Raspberry Robin Malware Evolves with Sophisticated Evasion Tactics](https://www.secureworld.io/industry-news/raspberry-robin-malware) | [Secure World Magazine](https://www.secureworld.io) |
 | 04/10/2024 | [Raspberry Robin Observed Spreading via Windows Script Files](https://www.scmagazine.com/news/raspberry-robin-observed-spreading-via-windows-script-files) | [SC Magazine](https://www.scmagazine.com/) | 
