@@ -8,7 +8,9 @@ permalink: /blog/:title/
 tags: detectionengineering logging
 ---
 
-Let's consider the following thought experiment: imagine an information system, where we don't use any database for storing information, instead a system, where logging is *replacing* databases, and granular level permissions can be added to logs as well. After every action of an information system, we would create a logline, which may or may not be visible to different users: 
+Let's consider the following thought experiment: 
+![dalle_logs]({{urlimg}}/assets/img/dalle_logs.png)
+Imagine an information system, where we don't use any database for storing information, instead a system, where logging is *replacing* databases, and granular level permissions can be added to logs as well. After every action of an information system, we would create a logline, which may or may not be visible to different users: 
 - the application administrator would see everything including the code and the logs
 - the logging administrator would see all logs and the code that specifically generates the logs (similar to a DBA in the normal world)
 - a group owner would see the actions performed in the group by all accounts, but not others
