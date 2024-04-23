@@ -9,9 +9,11 @@ tags: detectionengineering logging
 ---
 
 ![nist_sscs_sbom]({{urlimg}}/assets/img/nist_guidance_software_supply_chain_security.png)
+
 --------------------
 Software Architecture and Development Process considering Prevention
 --------------------
+
 Responsible Application Architects, whom are thinking about following a very healthy application development process, might consider to perform automatic testing baked into the CI/CD Pipeline, such as:
 - Static Application Security Testing (SAST), 
 - Dynamic Application Security Testing (DAST), 
