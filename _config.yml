@@ -31,13 +31,6 @@ minima:
     # mastodon:
     # - username: inverze
     #   instance: example.com
-    
-    # Disqus Comments
-    disqus:
-    # Leave shortname blank to disable comments site-wide.
-    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: inverze
-
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
