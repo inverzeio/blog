@@ -9,6 +9,8 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 07/25/2024 | **Github's Stargazers Ghost Network** || 
+| 07/25/2024 | [3,000 GitHub accounts found distributing malware](https://www.scmagazine.com/news/3000-github-accounts-found-distributing-malware) | [SC Magazine](https://www.scmagazine.com/) | 
 | 06/31/2024 | **VMware ESXi Vulnerability** || 
 | 06/31/2024 | [Record-Breaking $75 Million Ransom Paid To Dark Angels Gang](https://www.forbes.com/sites/daveywinder/2024/07/31/record-breaking-75-million-ransom-paid-to-dark-angels-gang/) | [**Forbes.com**](https://www.forbes.com) | 
 | 04/27/2024 | **Public Talk BSides Cymru 2024** ||
