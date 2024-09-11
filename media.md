@@ -9,6 +9,12 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 09/10/2024 | **1H 2024 Threat Intelligence Report** ||
+| 09/10/2024 | [Attacks Against Manufacturing Industry Increase 105% in First Half of 2024, New Research Finds ](https://www.prnewswire.com/news-releases/attacks-against-manufacturing-industry-increase-105-in-first-half-of-2024-new-research-finds-302243000.html) | [PR Newswire](https://www.prnewswire.com)
+| 09/10/2024 | [Attacks Against Manufacturing Industry Increase 105% in First Half of 2024, New Research Finds](https://www.globalsecuritymag.fr/attacks-against-manufacturing-industry-increase-105-in-first-half-of-2024-new.html) | [Global Security Mag](https://www.globalsecuritymag.fr)
+| 09/10/2024 | [Attacks on manufacturing companies up 105 percent](https://betanews.com/2024/09/10/attacks-on-manufacturing-companies-up-105-percent/) | [BetaNews](https://betanews.com)
+| 09/10/2024 | [Key Findings from Ontinue’s 1H 2024 Threat Intelligence Report](https://www.ontinue.com/resource/1h-2024-threat-intelligence-report/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 09/10/2024 | [1H 2024 Threat Intelligence Report](https://www.ontinue.com/wp-content/uploads/2024/09/1H-2024-Threat-Intelligence-Report.pdf) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 07/25/2024 | **Github's Stargazers Ghost Network** || 
 | 07/25/2024 | [3,000 GitHub accounts found distributing malware](https://www.scmagazine.com/news/3000-github-accounts-found-distributing-malware) | [SC Magazine](https://www.scmagazine.com/) | 
 | 06/31/2024 | **VMware ESXi Vulnerability** || 
