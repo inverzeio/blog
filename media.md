@@ -10,6 +10,7 @@ Media Appearances, Publications and Conference Talks
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 09/10/2024 | **1H 2024 Threat Intelligence Report** ||
+| 09/10/2024 | [Manufacturing, Industrial Sectors Are Under Siege](https://securityboulevard.com/2024/09/manufacturing-industrial-sectors-are-under-siege/) | [Security Boulevard](securityboulevard.com) | 
 | 09/10/2024 | [Attacks Against Manufacturing Industry Increase 105% in First Half of 2024, New Research Finds ](https://www.prnewswire.com/news-releases/attacks-against-manufacturing-industry-increase-105-in-first-half-of-2024-new-research-finds-302243000.html) | [PR Newswire](https://www.prnewswire.com)
 | 09/10/2024 | [Attacks Against Manufacturing Industry Increase 105% in First Half of 2024, New Research Finds](https://www.globalsecuritymag.fr/attacks-against-manufacturing-industry-increase-105-in-first-half-of-2024-new.html) | [Global Security Mag](https://www.globalsecuritymag.fr)
 | 09/10/2024 | [Attacks on manufacturing companies up 105 percent](https://betanews.com/2024/09/10/attacks-on-manufacturing-companies-up-105-percent/) | [BetaNews](https://betanews.com)
