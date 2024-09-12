@@ -9,6 +9,8 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 09/11/2024 | **Lazarus Targets Developers** ||
+| 09/10/2024 | [Lazarus Targets Developers with Sophisticated Coding Test Scam](https://www.secureworld.io/industry-news/lazarus-developers-coding-test-scam) | [Secure World Magazine](https://www.secureworld.io) |
 | 09/10/2024 | **1H 2024 Threat Intelligence Report** ||
 | 09/10/2024 | [Manufacturing, Industrial Sectors Are Under Siege](https://securityboulevard.com/2024/09/manufacturing-industrial-sectors-are-under-siege/) | [Security Boulevard](securityboulevard.com) | 
 | 09/10/2024 | [Attacks Against Manufacturing Industry Increase 105% in First Half of 2024, New Research Finds ](https://www.prnewswire.com/news-releases/attacks-against-manufacturing-industry-increase-105-in-first-half-of-2024-new-research-finds-302243000.html) | [PR Newswire](https://www.prnewswire.com)
