@@ -9,6 +9,9 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 09/26/2024 | **CUPS Linux Remote Code Execution Vulnerabilty Disclosed** ||
+| 09/27/2024 | [Critical Linux CUPS Printing System Flaws Could Allow Remote Command Execution](https://thehackernews.com/2024/09/critical-linux-cups-printing-system.html)
+| 09/26/2024 | [Customer Advisory: New Remote Code Execution Vulnerability in printing facility (‘CUPS’) commonly found on Linux and similar systems](https://www.ontinue.com/resource/new-linux-rce-in-cups-printing-system/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 09/11/2024 | **Lazarus Targets Developers** ||
 | 09/11/2024 | [Lazarus Targets Developers with Sophisticated Coding Test Scam](https://www.secureworld.io/industry-news/lazarus-developers-coding-test-scam) | [Secure World Magazine](https://www.secureworld.io) |
 | 09/10/2024 | **1H 2024 Threat Intelligence Report** ||
