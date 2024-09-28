@@ -10,6 +10,7 @@ Media Appearances, Publications and Conference Talks
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 09/26/2024 | **CUPS(Common Unix Printing System) Remote Code Execution Vulnerabilty Disclosed** ||
+| 09/27/2024 | [CUPS vulnerabilities put Linux systems at risk of remote code execution](https://www.scworld.com/news/cups-vulnerabilities-put-linux-systems-at-risk-of-remote-code-execution) | [SC World](https://www.scworld.com) |
 | 09/27/2024 | [Highly Anticipated Linux Flaw Allows Remote Code Execution, but Less Serious Than Expected](https://www.securityweek.com/highly-anticipated-linux-flaw-allows-remote-code-execution-but-less-serious-than-expected/) | [Security Week](https://www.securityweek.com) |
 | 09/27/2024 | [Critical Linux CUPS Printing System Flaws Could Allow Remote Command Execution](https://thehackernews.com/2024/09/critical-linux-cups-printing-system.html) | [The Hacker News](https://thehackernews.com) |
 | 09/26/2024 | [Customer Advisory: New Remote Code Execution Vulnerability in printing facility (‘CUPS’) commonly found on Linux and similar systems](https://www.ontinue.com/resource/new-linux-rce-in-cups-printing-system/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
