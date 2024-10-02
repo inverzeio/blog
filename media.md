@@ -10,7 +10,7 @@ Media Appearances, Publications and Conference Talks
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 10/02/2024 | **INC Ransomware attacks against healthcare** ||
-| 10/02/2024 | [Security leaders discuss INC ransomware attacks targeting healthcare](https://www.securitymagazine.com/articles/101084-security-leaders-discuss-inc-ransomware-attacks-targeting-healthcare/) | 
+| 10/02/2024 | [Security leaders discuss INC ransomware attacks targeting healthcare](https://www.securitymagazine.com/articles/101084-security-leaders-discuss-inc-ransomware-attacks-targeting-healthcare/) | [Security Magazine](https://www.securitymagazine.com) | 
 | 09/26/2024 | **CUPS(Common Unix Printing System) Remote Code Execution Vulnerabilty Disclosed** ||
 | 09/27/2024 | [CUPS vulnerabilities put Linux systems at risk of remote code execution](https://www.scworld.com/news/cups-vulnerabilities-put-linux-systems-at-risk-of-remote-code-execution) | [SC World](https://www.scworld.com) |
 | 09/27/2024 | [Highly Anticipated Linux Flaw Allows Remote Code Execution, but Less Serious Than Expected](https://www.securityweek.com/highly-anticipated-linux-flaw-allows-remote-code-execution-but-less-serious-than-expected/) | [Security Week](https://www.securityweek.com) |
