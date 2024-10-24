@@ -9,6 +9,8 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 10/24/2024 | **macOS "HM Surf" vulnerability (CVE-2024-44133)** ||
+| 10/24/2024 | [New MacOS vulnerability allows unauthorized data access](https://www.securitymagazine.com/articles/101153-new-macos-vulnerability-allows-unauthorized-data-access) | [Security Magazine](https://www.securitymagazine.com) |
 | 10/02/2024 | **INC Ransomware attacks against healthcare** ||
 | 10/02/2024 | [Security leaders discuss INC ransomware attacks targeting healthcare](https://www.securitymagazine.com/articles/101084-security-leaders-discuss-inc-ransomware-attacks-targeting-healthcare/) | [Security Magazine](https://www.securitymagazine.com) | 
 | 09/26/2024 | **CUPS(Common Unix Printing System) Remote Code Execution Vulnerabilty Disclosed** ||
