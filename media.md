@@ -9,6 +9,10 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 10/30/2024 | **Midnight Blizzard Spear Phishing Intelligence Collection Campaign** ||
+| 10/31/2024 | [Russian Actor Midnight Blizzard Conducts Massive Spear-Phishing Campaign Using RDP Files](https://informationsecuritybuzz.com/russian-actor-midnight-blizzard-conducts-massive-spear-phishing-campaign-using-rdp-files/) | [InformationSecurityBuzz](https://informationsecuritybuzz.com) |
+| 10/31/2024 | [Microsoft Threat Intelligence Update: How Midnight Blizzard Carried Out Spear-Phishing Using RDP Files](https://cybertechnologyinsights.com/aiops/microsoft-threat-intelligence-update-how-midnight-blizzard-carried-out-spear-phishing-using-rdp-files/) | [Cyber Technology Insights](https://cybertechnologyinsights.com) |
+| 10/30/2024 | [Midnight Blizzard Uses RDP to Target 100 Organizations in US, Europe](https://www.scworld.com/news/midnight-blizzard-uses-rdp-to-target-100-organizations-in-us-and-europe) | [SC World](https://www.scworld.com) |
 | 10/24/2024 | **macOS "HM Surf" vulnerability (CVE-2024-44133)** ||
 | 10/24/2024 | [New MacOS vulnerability allows unauthorized data access](https://www.securitymagazine.com/articles/101153-new-macos-vulnerability-allows-unauthorized-data-access) | [Security Magazine](https://www.securitymagazine.com) |
 | 10/02/2024 | **INC Ransomware attacks against healthcare** ||
@@ -21,6 +25,7 @@ Media Appearances, Publications and Conference Talks
 | 09/11/2024 | **Lazarus Targets Developers** ||
 | 09/11/2024 | [Lazarus Targets Developers with Sophisticated Coding Test Scam](https://www.secureworld.io/industry-news/lazarus-developers-coding-test-scam) | [Secure World Magazine](https://www.secureworld.io) |
 | 09/10/2024 | **1H 2024 Threat Intelligence Report** ||
+| 10/31/2024 | [A Halloween Haunting: Unveiling Cybersecurity’s Scary Stats](https://informationsecuritybuzz.com/unveiling-cybersecuritys-scary-stats/) | [Information Security Buzz](https://informationsecuritybuzz.com) |
 | 09/19/2024 | [China’s cyberattacks on manufacturing are part of its long-game strategy for industrial dominance](https://www.scmagazine.com/perspective/chinas-cyberattacks-on-manufacturing-are-part-of-its-long-game-strategy-for-industrial-dominance) | [SC Magazine](https://www.scmagazine.com/) | 
 | 09/16/2024 | [Cyberattacks against manufacturing sector increased 105% in H1 of 2024](https://www.securitymagazine.com/articles/101043-cyberattacks-against-manufacturing-sector-increased-105-in-h1-of-2024) | [Securitymagazine](https://www.securitymagazine.com) |
 | 09/10/2024 | [Manufacturing, Industrial Sectors Are Under Siege](https://securityboulevard.com/2024/09/manufacturing-industrial-sectors-are-under-siege/) | [Security Boulevard](securityboulevard.com) | 
@@ -38,6 +43,8 @@ Media Appearances, Publications and Conference Talks
 | 04/11/2024 | **Raspberry Robin Malware** ||
 | 04/11/2024 | [Raspberry Robin Malware Evolves with Sophisticated Evasion Tactics](https://www.secureworld.io/industry-news/raspberry-robin-malware) | [Secure World Magazine](https://www.secureworld.io) |
 | 04/10/2024 | [Raspberry Robin Observed Spreading via Windows Script Files](https://www.scmagazine.com/news/raspberry-robin-observed-spreading-via-windows-script-files) | [SC Magazine](https://www.scmagazine.com/) | 
+| 04/10/2024 | **Expert Panel: Ontinue 2024 Threat Report** ||
+| 04/10/2024 | [Expert Panel Discussion](https://www.ontinue.com/resource/expert-panel-ontinue-2023-threat-report/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 03/19/2024 | **2023 Threat Intelligence Report** ||
 | 03/19/2024 | [End of year Report - 2023 Threat Intelligence Report](https://www.ontinue.com/wp-content/uploads/2024/03/2023-Ontinue-Threat-Intelligence-Report.pdf) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 03/19/2024 | [Navigating the Complex Cybersecurity Landscape](https://www.ontinue.com/resource/deep-dive-into-new-2023-threat-intelligence-report/) | [Ontinue Blog](https://www.ontinue.com/resources/?resource_type%5B%5D=blog) |
@@ -51,7 +58,6 @@ Media Appearances, Publications and Conference Talks
 | 02/16/2024 | [‘MrAgent’ ransomware tool from RansomHouse Group targets ESXi servers](https://www.scmagazine.com/news/mragent-ransomware-tool-from-ransomhouse-group-targets-esxi-servers) | [SC Magazine](https://www.scmagazine.com/) |
 | 02/08/2024 | **Linux Shim Vulnerability** ||
 | 02/08/2024 | [Linux Devs Rush to Patch Critical Vulnerability in Shim](https://www.infosecurity-magazine.com/news/linux-devs-patch-critical-shim/) | [Infosecurity Magazine](https://infosecurity-magazine.com) |
-| 03/29/2024| [Urgent Response: Linux Developers Swiftly Patch Critical Vulnerability in Shim](https://nixos.pro/posts/urgent-response-linux-developers-swiftly-patch-critical-vulnerability-in-shim/) | [NixOS Pro](nixos.pro) |
 | 01/22/2024 | **Mint SandStorm** ||
 | 01/22/2024 | [Constantly Changing Threat Landscape - page 10](https://www.channelfutures.com/security/the-gately-report-orca-security-to-invest-more-in-partners-in-2024) | [Channel Futures](https://www.channelfutures.com) |
 | 01/19/2024 | [Microsoft: Iranian Hackers Evolving Techniques in Espionage Campaigns](https://www.secureworld.io/industry-news/iranian-hackers-espionage-campaigns) | [SecureWorld](https://secureworld.io) |
