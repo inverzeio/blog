@@ -25,6 +25,7 @@ Media Appearances, Publications and Conference Talks
 | 09/11/2024 | **Lazarus Targets Developers** ||
 | 09/11/2024 | [Lazarus Targets Developers with Sophisticated Coding Test Scam](https://www.secureworld.io/industry-news/lazarus-developers-coding-test-scam) | [Secure World Magazine](https://www.secureworld.io) |
 | 09/10/2024 | **1H 2024 Threat Intelligence Report** ||
+| 10/31/2024 | [Return from the data fog: Scary security tales for Halloween](https://www.digitaljournal.com/tech-science/return-from-the-data-fog-scary-security-tales-for-halloween/article) | [Digital Journal](https://www.digitaljournal.com) |
 | 10/31/2024 | [A Halloween Haunting: Unveiling Cybersecurity’s Scary Stats](https://informationsecuritybuzz.com/unveiling-cybersecuritys-scary-stats/) | [Information Security Buzz](https://informationsecuritybuzz.com) |
 | 09/19/2024 | [China’s cyberattacks on manufacturing are part of its long-game strategy for industrial dominance](https://www.scmagazine.com/perspective/chinas-cyberattacks-on-manufacturing-are-part-of-its-long-game-strategy-for-industrial-dominance) | [SC Magazine](https://www.scmagazine.com/) | 
 | 09/16/2024 | [Cyberattacks against manufacturing sector increased 105% in H1 of 2024](https://www.securitymagazine.com/articles/101043-cyberattacks-against-manufacturing-sector-increased-105-in-h1-of-2024) | [Securitymagazine](https://www.securitymagazine.com) |
