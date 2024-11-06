@@ -10,6 +10,7 @@ Media Appearances, Publications and Conference Talks
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 10/30/2024 | **Midnight Blizzard Spear Phishing Intelligence Collection Campaign** ||
+| 11/06/2024 | [Russian Midnight Blizzard Spear Phishing Campaign Targets Thousands Using RDP Files](https://www.cpomagazine.com/cyber-security/russian-midnight-blizzard-spear-phishing-campaign-targets-thousands-using-rdp-files/) | [CPO Magazine](https://www.cpomagazine.com/) |
 | 10/31/2024 | [Russian Actor Midnight Blizzard Conducts Massive Spear-Phishing Campaign Using RDP Files](https://informationsecuritybuzz.com/russian-actor-midnight-blizzard-conducts-massive-spear-phishing-campaign-using-rdp-files/) | [InformationSecurityBuzz](https://informationsecuritybuzz.com) |
 | 10/31/2024 | [Microsoft Threat Intelligence Update: How Midnight Blizzard Carried Out Spear-Phishing Using RDP Files](https://cybertechnologyinsights.com/aiops/microsoft-threat-intelligence-update-how-midnight-blizzard-carried-out-spear-phishing-using-rdp-files/) | [Cyber Technology Insights](https://cybertechnologyinsights.com) |
 | 10/30/2024 | [Midnight Blizzard Uses RDP to Target 100 Organizations in US, Europe](https://www.scworld.com/news/midnight-blizzard-uses-rdp-to-target-100-organizations-in-us-and-europe) | [SC World](https://www.scworld.com) |
