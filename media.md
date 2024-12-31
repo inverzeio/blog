@@ -11,6 +11,7 @@ Media Appearances, Publications and Conference Talks
 | ------------- | :------------- | :------------- |
 | 12/27/2024 | **2025 Cybersecurity predictions**
 | 12/27/2024 | [2025 Cybersecurity Predictions: Not Getting Easier; But There is Hope](https://www.secureworld.io/industry-news/cybersecurity-predictions-for-2025) | [SecureWorld](https://www.secureworld.io/) |
+| 12/31/2024 | [3 Cybercrime Trends Tech Pros Must Watch in 2025](https://www.dice.com/career-advice/3-cybercrime-trends-tech-pros-must-watch-in-2025) | [DICE Insights](https://www.dice.com) |
 | 10/30/2024 | **Midnight Blizzard Spear Phishing Intelligence Collection Campaign** ||
 | 11/06/2024 | [Russian Midnight Blizzard Spear Phishing Campaign Targets Thousands Using RDP Files](https://www.cpomagazine.com/cyber-security/russian-midnight-blizzard-spear-phishing-campaign-targets-thousands-using-rdp-files/) | [CPO Magazine](https://www.cpomagazine.com/) |
 | 10/31/2024 | [Russian Actor Midnight Blizzard Conducts Massive Spear-Phishing Campaign Using RDP Files](https://informationsecuritybuzz.com/russian-actor-midnight-blizzard-conducts-massive-spear-phishing-campaign-using-rdp-files/) | [InformationSecurityBuzz](https://informationsecuritybuzz.com) |
