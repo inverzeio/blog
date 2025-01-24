@@ -12,6 +12,7 @@ Media Appearances, Publications and Conference Talks
 | 01/15/2025 | **Cybersecurity and Threat Intelligence Investments**
 | 01/15/2025 | [Stop wasting money on ineffective threat intelligence: 5 mistakes to avoid](https://www.csoonline.com/article/3624136/stop-wasting-money-on-ineffective-threat-intelligence-5-mistakes-to-avoid.html) | [CSO Online](https://www.csoonline.com) |
 | 12/27/2024 | **2025 Cybersecurity predictions** |
+| 01/23/2025 | [Top Cybersecurity Predictions of 2025: Part 1](http://www.itprotoday.com/it-security/cybersecurity-trends-and-predictions-2025-from-industry-insiders) | [ITProToday](https://www.itprotoday.com) |
 | 12/27/2024 | [2025 Cybersecurity Predictions: Not Getting Easier; But There is Hope](https://www.secureworld.io/industry-news/cybersecurity-predictions-for-2025) | [SecureWorld](https://www.secureworld.io/) |
 | 12/31/2024 | [3 Cybercrime Trends Tech Pros Must Watch in 2025](https://www.dice.com/career-advice/3-cybercrime-trends-tech-pros-must-watch-in-2025) | [DICE Insights](https://www.dice.com) |
 | 10/30/2024 | **Midnight Blizzard Spear Phishing Intelligence Collection Campaign** ||
