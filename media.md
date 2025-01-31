@@ -9,7 +9,9 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
-| 01/15/2025 | **Cybersecurity and Threat Intelligence Investments**
+| 1/30/2025 | **Voyager PHP Admin Panel vulnerability** |
+| 1/30/2025 | [1-click RCE possible by combining vulnerabilities in Voyager PHP](https://www.scworld.com/news/1-click-rce-possible-by-combining-vulnerabilities-in-voyager-php) | [Security Magazine](https://www.securitymagazine.com) |
+| 01/15/2025 | **Cybersecurity and Threat Intelligence Investments** ||
 | 01/15/2025 | [Stop wasting money on ineffective threat intelligence: 5 mistakes to avoid](https://www.csoonline.com/article/3624136/stop-wasting-money-on-ineffective-threat-intelligence-5-mistakes-to-avoid.html) | [CSO Online](https://www.csoonline.com) |
 | 12/27/2024 | **2025 Cybersecurity predictions** |
 | 01/23/2025 | [Top Cybersecurity Predictions of 2025: Part 1](http://www.itprotoday.com/it-security/cybersecurity-trends-and-predictions-2025-from-industry-insiders) | [ITProToday](https://www.itprotoday.com) |
