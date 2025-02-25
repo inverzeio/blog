@@ -9,8 +9,10 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
-| 1/30/2025 | **Voyager PHP Admin Panel vulnerability** |
-| 1/30/2025 | [1-click RCE possible by combining vulnerabilities in Voyager PHP](https://www.scworld.com/news/1-click-rce-possible-by-combining-vulnerabilities-in-voyager-php) | [Security Magazine](https://www.securitymagazine.com) |
+| 02/25/2025 | **Salt Typhoon Attacks** |
+| 02/25/2025 | [Vulnerability Exploited in Salt Typhoon Attack](https://www.securitymagazine.com/articles/101419-7-year-old-vulnerability-exploited-in-salt-typhoon-attack) | [Security Magazine](https://www.securitymagazine.com) |
+| 01/30/2025 | **Voyager PHP Admin Panel vulnerability** |
+| 01/30/2025 | [1-click RCE possible by combining vulnerabilities in Voyager PHP](https://www.scworld.com/news/1-click-rce-possible-by-combining-vulnerabilities-in-voyager-php) | [Security Magazine](https://www.securitymagazine.com) |
 | 01/15/2025 | **Cybersecurity and Threat Intelligence Investments** ||
 | 01/15/2025 | [Stop wasting money on ineffective threat intelligence: 5 mistakes to avoid](https://www.csoonline.com/article/3624136/stop-wasting-money-on-ineffective-threat-intelligence-5-mistakes-to-avoid.html) | [CSO Online](https://www.csoonline.com) |
 | 12/27/2024 | **2025 Cybersecurity predictions** |
