@@ -10,6 +10,7 @@ Media Appearances, Publications and Conference Talks
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 02/26/2025 | **Black Basta Chat Leak** |
+| 02/28/2025 | [Black Basta leak exposes critical ransomware tactics and internal strife, revealing attack patterns](https://industrialcyber.co/ransomware/black-basta-leak-exposes-critical-ransomware-tactics-and-internal-strife-revealing-attack-patterns/) | [Industrial Cyber](https://industrialcyber.co) |
 | 02/26/2025 | [Inside BlackBasta: What Leaked Conversations Reveal About Their Ransomware Operations](https://www.ontinue.com/resource/inside-black-basta-leaked-coversations/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 02/25/2025 | **Salt Typhoon Attacks** |
 | 02/25/2025 | [Vulnerability Exploited in Salt Typhoon Attack](https://www.securitymagazine.com/articles/101419-7-year-old-vulnerability-exploited-in-salt-typhoon-attack) | [Security Magazine](https://www.securitymagazine.com) |
