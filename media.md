@@ -67,6 +67,7 @@ Media Appearances, Publications and Conference Talks
 | 03/19/2024 | [Research Shows IT and Construction Sectors Hardest Hit By Ransomware](https://www.infosecurity-magazine.com/news/it-construction-sectors-ransomware/) | [Infosecurity Magazine](https://infosecurity-magazine.com) |
 | 03/19/2024 | [Threats Shaping the Cyber Threat Landscape](https://vmblog.com/archive/2024/03/19/ontinue-releases-first-inaugural-threat-intelligence-report-threats-shaping-the-cyber-threat-landscape.aspx) | [VMBlog](https://vmblog.com) |
 | 03/14/2024 | **Security Data Management** ||
+| 03/14/2025 | [How data science in cybersecurity can cut through the fog of war](https://www.reversinglabs.com/blog/cybersecurity-fog-of-war-data-science) | [ReversingLabs](https://www.reversinglabs.com) |
 | 03/14/2024 | [10 Tips for Better Security Data Management](https://www.darkreading.com/cybersecurity-analytics/10-tips-for-better-security-data-management) | [DarkReading](https://www.darkreading.com) |
 | 02/23/2024 | **Red Teaming GenAI** ||
 | 02/23/2024 | [Microsoft Unveils PyRIT, a Red Teaming Tool for Generative AI](https://techstrong.ai/cybersecurity-ai/microsoft-unveils-pyrit-a-red-teaming-tool-for-generative-ai/) | [Techstrong.ai](https://techstrong.ai/) |
