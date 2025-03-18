@@ -10,10 +10,14 @@ Media Appearances, Publications and Conference Talks
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 02/26/2025 | **Black Basta Chat Leak** |
-| 03/03/2025 | [Ransomware Gang Leak Shows Stolen Passwords And 2FA Codes Driving Attacks](https://www.forbes.com/sites/daveywinder/2025/03/02/ransomware-gang-leak-shows-stolen-passwords-2fa-codes-driving-attacks/) | [**Forbes.com**](https://www.forbes.com) | 
+| 03/03/2025 | [Ransomware Gang Leak Shows Stolen Passwords And 2FA Codes Driving Attacks](https://www.forbes.com/sites/daveywinder/2025/03/02/ransomware-gang-leak-shows-stolen-passwords-2fa-codes-driving-attacks/) | [**Forbes.com**](https://www.forbes.com) |
+| 03/04/2025 | [Black Basta logs offer peek into its hacking methods](https://newsletter.smartbrief.com/sharedSummary/index.jsp?copyId=E2121FDA-9F13-40E4-82DE-2553A14E2E31&issueId=F6F47F2F-7505-45C6-A267-3ED85E314994&briefId=F6D8DF94-3AEB-4A28-8343-BDDAF6341D54&launched=true) | [Smartbrief.com](smartbrief.com) |
+| 03/02/2025 | [Ransomware Gang Leak Shows Stolen Passwords And 2FA Codes Driving Attacks](https://blog.gracker.ai/ransomware-leak-stolen-passwords/) | [GrackerAI](https://blog.gracker.ai) |
 | 02/28/2025 | [Black Basta leak exposes critical ransomware tactics and internal strife, revealing attack patterns](https://industrialcyber.co/ransomware/black-basta-leak-exposes-critical-ransomware-tactics-and-internal-strife-revealing-attack-patterns/) | [Industrial Cyber](https://industrialcyber.co) |
 | 02/26/2025 | [Inside BlackBasta: What Leaked Conversations Reveal About Their Ransomware Operations](https://www.ontinue.com/resource/inside-black-basta-leaked-coversations/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 02/26/2025 | [Inside BlackBasta: What Leaked Conversations Reveal About Their Ransomware Operations](https://xfe-development.xforce.ibm.com/osint/guid:5193c94f801d44f7bee7fff93287a359) | [IBM X-Force](https://xfe-development.xforce.ibm.com)
 | 02/25/2025 | **Salt Typhoon Attacks** |
+| 03/18/2025 | [Salt Typhoon Exploits Flaw to Breach Major U.S. Telecoms](https://securitybuzz.com/cybersecurity-news/salt-typhoon-exploits-seven-year-old-flaw-to-breach-major-u-s-telecoms/) | [SecurityBuzz](https://securitybuzz.com) |
 | 02/25/2025 | [Vulnerability Exploited in Salt Typhoon Attack](https://www.securitymagazine.com/articles/101419-7-year-old-vulnerability-exploited-in-salt-typhoon-attack) | [Security Magazine](https://www.securitymagazine.com) |
 | 01/30/2025 | **Voyager PHP Admin Panel vulnerability** |
 | 01/30/2025 | [1-click RCE possible by combining vulnerabilities in Voyager PHP](https://www.scworld.com/news/1-click-rce-possible-by-combining-vulnerabilities-in-voyager-php) | [Security Magazine](https://www.securitymagazine.com) |
