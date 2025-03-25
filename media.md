@@ -9,6 +9,10 @@ Media Appearances, Publications and Conference Talks
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 03/25/2025 | **2024 Threat Intelligence Report** |
+| 03/25/2025 | [Massive surge in ransomware attacks](https://www.forbes.com/sites/daveywinder/2025/03/25/massive-surge-in-ransomware-attacks-ai-and-2fa-bypass-to-blame/) | [**Forbes.com**](https://www.forbes.com) |
+| 03/25/2025 | [If It’s Online and Vulnerable, It’s a Target—Fast](https://www.ontinue.com/resource/2h-2024-threat-intelligence-report/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 03/25/2025 | [2025_2H Threat Intelligence Report](https://www.ontinue.com/wp-content/uploads/2025/03/2025_2H-Threat-Intelligence-Report.pdf) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 02/26/2025 | **Black Basta Chat Leak** |
 | 03/03/2025 | [Ransomware Gang Leak Shows Stolen Passwords And 2FA Codes Driving Attacks](https://www.forbes.com/sites/daveywinder/2025/03/02/ransomware-gang-leak-shows-stolen-passwords-2fa-codes-driving-attacks/) | [**Forbes.com**](https://www.forbes.com) |
 | 03/04/2025 | [Black Basta logs offer peek into its hacking methods](https://newsletter.smartbrief.com/sharedSummary/index.jsp?copyId=E2121FDA-9F13-40E4-82DE-2553A14E2E31&issueId=F6F47F2F-7505-45C6-A267-3ED85E314994&briefId=F6D8DF94-3AEB-4A28-8343-BDDAF6341D54&launched=true) | [Smartbrief.com](smartbrief.com) |
