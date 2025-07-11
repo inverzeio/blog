@@ -9,6 +9,8 @@ permalink: /media/
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 07/11/2025 | **SVG Smuggling** |
+| 07/11/2025 | [SVG Smuggling – Image Embedded JavaScript Redirect Attacks](https://www.ontinue.com/resource/blog-svg-smuggling/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 03/25/2025 | **2024 Threat Intelligence Report (45 publications)** |
 | 04/04/2025 | [Security Researchers Identify Generative AI 'Vishing' Attack](https://thejournal.com/Articles/2025/04/04/Security-Researchers-Identify-Generative-AI-Vishing-Attack.aspx) | [THE Journal](https://thejournal.com) |
 | 04/04/2025 | [Security Researchers Identify Generative AI 'Vishing' Attack](https://campustechnology.com/Articles/2025/04/04/Security-Firm-Identifies-Generative-AI-Vishing-Attack.aspx) | [Campus Technology](https://campustechnology.com) |
