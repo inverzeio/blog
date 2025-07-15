@@ -10,6 +10,7 @@ permalink: /media/
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 07/11/2025 | **SVG Smuggling** |
+| 07/15/2025 | [Threat Actors Exploit SVG Files in Stealthy JavaScript Redirects](https://www.infosecurity-magazine.com/news/hackers-svg-files-javascript/) | [Infosecurity Magazine](https://www.infosecurity-magazine.com) |
 | 07/15/2025 | [Threat Actors Use SVG Smuggling for Browser-Native Redirection](https://www.securityweek.com/threat-actors-use-svg-smuggling-for-browser-native-redirection/) | [Security Week](https://www.securityweek.com/) |
 | 07/11/2025 | [SVG Smuggling – Image Embedded JavaScript Redirect Attacks](https://www.ontinue.com/resource/blog-svg-smuggling/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 03/25/2025 | **2024 Threat Intelligence Report (45 publications)** |
