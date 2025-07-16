@@ -11,7 +11,7 @@ permalink: /media/
 | ------------- | :------------- | :------------- |
 | 07/11/2025 | **SVG Smuggling** |
 | 07/16/2025 | [Delete Any Emails That Include These Images On Your Phone Or PC](https://www.forbes.com/sites/zakdoffman/2025/07/16/delete-any-emails-on-your-phone-or-pc-that-include-these-images/) | [**Forbes.com**](https://www.forbes.com) |
-| 07/16/2025 | [Clandestine Intrusions Involving SVG Images on the Rise](https://www.scworld.com/brief/clandestine-intrusions-involving-svg-images-on-the-rise | [SC World](https://www.scworld.com)
+| 07/16/2025 | [Clandestine Intrusions Involving SVG Images on the Rise](https://www.scworld.com/brief/clandestine-intrusions-involving-svg-images-on-the-rise) | [SC World](https://www.scworld.com) |
 | 07/15/2025 | [Attackers Hide JavaScript in SVG Images to Lure Users to Malicious Sites](https://hackread.com/attackers-hide-javascript-svg-images-malicious-sites/) | [Hack Read](https://hackread.com) |
 | 07/15/2025 | [SVG Smuggling Attacks Elevate Phishing Campaign Techniques, Embedding Malicious JavaScript Code](https://www.technadu.com/svg-smuggling-attacks-elevate-phishing-campaign-techniques-embedding-malicious-javascript-code/602748/) | [Tech Nadu](https://www.technadu.com) |
 | 07/15/2025 | [How Phishers Are Weaponizing SVG Images in Zero-Click, Evasive Campaigns](https://www.csoonline.com/article/4022432/how-phishers-are-weaponizing-svg-images-in-zero-click-evasive-campaigns.html) | [CSO Magazine](https://www.csoonline.com) |
