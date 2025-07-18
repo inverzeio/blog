@@ -10,6 +10,7 @@ permalink: /media/
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 07/11/2025 | **SVG Smuggling** |
+| 07/17/2025 | [Stop Treating SVG Image Files as Harmless or be Caught Out in Phishing Attacks](https://www.techfinitive.com/stop-treating-svg-image-files-as-harmless-or-be-caught-out-in-phishing-attacks/) | [TechFinitive](https://www.techfinitive.com/) |
 | 07/16/2025 | [Delete Any Emails That Include These Images On Your Phone Or PC](https://www.forbes.com/sites/zakdoffman/2025/07/16/delete-any-emails-on-your-phone-or-pc-that-include-these-images/) | [**Forbes.com**](https://www.forbes.com) |
 | 07/16/2025 | [Attackers Hide JavaScript in SVG Images to Lure Users to Malicious Sites](https://hackread.com/attackers-hide-javascript-svg-images-malicious-sites/) | [Hack Read](https://hackread.com/) |
 | 07/16/2025 | [Threat Actors Use SVG Smuggling for Browser-Native Redirection](https://www.securityweek.com/threat-actors-use-svg-smuggling-for-browser-native-redirection/) | [Security Week](https://www.securityweek.com) |
