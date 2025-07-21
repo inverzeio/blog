@@ -10,6 +10,7 @@ permalink: /media/
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 07/21/2025 | **Sharepoint ToolShell Exploitation** |
+| 07/21/2025 | [Microsoft Rushes Emergency Patch for Actively Exploited SharePoint 'ToolShell' Bug](https://www.darkreading.com/remote-workforce/microsoft-rushes-emergency-fix-exploited-sharepoint-toolshell-flaw) | [Dark Reading](https://www.darkreading.com) |
 | 07/21/2025 | [Attackers Exploiting Microsoft SharePoint Vulnerabilities](https://www.channelfutures.com/security/attackers-exploiting-microsoft-sharepoint-vulnerabilities) | [Channel Futures](https://www.channelfutures.com) |
 | 07/21/2025 | [ToolShell Exploitation Escalates: Unpatched SharePoint Flaw Opens the Door to Full Server Takeover](https://informationsecuritybuzz.com/toolshell-exploitation-escalates-unpatched-sharepoint-flaw-opens-the-door-to-full-server-takeover/) | [Information Security Buzz](https://informationsecuritybuzz.com) |
 | 07/21/2025 | [Microsoft Issues Critical Alert on SharePoint Server Flaws CVE-2025-53770 and CVE-2025-53771](https://www.technadu.com/microsoft-issues-critical-alert-on-sharepoint-server-flaws-cve-2025-53770-and-cve-2025-53771/603576/) | [Tech Nadu](https://www.technadu.com) |
