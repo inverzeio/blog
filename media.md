@@ -10,9 +10,10 @@ permalink: /media/
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
 | 07/21/2025 | **Sharepoint ToolShell Exploitation** |
+| 07/21/2025 | [Attackers Exploiting Microsoft SharePoint Vulnerabilities](https://www.channelfutures.com/security/attackers-exploiting-microsoft-sharepoint-vulnerabilities) | [Channel Futures](https://www.channelfutures.com) |
 | 07/21/2025 | [ToolShell Exploitation Escalates: Unpatched SharePoint Flaw Opens the Door to Full Server Takeover](https://informationsecuritybuzz.com/toolshell-exploitation-escalates-unpatched-sharepoint-flaw-opens-the-door-to-full-server-takeover/) | [Information Security Buzz](https://informationsecuritybuzz.com) |
 | 07/21/2025 | [Microsoft Issues Critical Alert on SharePoint Server Flaws CVE-2025-53770 and CVE-2025-53771](https://www.technadu.com/microsoft-issues-critical-alert-on-sharepoint-server-flaws-cve-2025-53770-and-cve-2025-53771/603576/) | [Tech Nadu](https://www.technadu.com) |
-| 07/17/2025 | [CVE-2025-53770 “ToolShell” – Active SharePoint Zero Day](https://www.ontinue.com/resource/toolshell-active-sharepoint-zero-day/)) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 07/17/2025 | [CVE-2025-53770 “ToolShell” – Active SharePoint Zero Day](https://www.ontinue.com/resource/toolshell-active-sharepoint-zero-day/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 07/11/2025 | **SVG Smuggling** |
 | 07/17/2025 | [SMUGGLERS RUN — Hackers are increasingly exploiting scalable vector graphic image files](https://login.politicopro.com/?redirect=https://subscriber.politicopro.com/newsletter/2025/07/signalgates-pentagon-legacy-00455210) | [PoliticoPro](https://login.politicopro.com) |
 | 07/17/2025 | [Stop Treating SVG Image Files as Harmless or be Caught Out in Phishing Attacks](https://www.techfinitive.com/stop-treating-svg-image-files-as-harmless-or-be-caught-out-in-phishing-attacks/) | [TechFinitive](https://www.techfinitive.com/) |
