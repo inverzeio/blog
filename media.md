@@ -9,7 +9,7 @@ permalink: /media/
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
-| 07/21/2025 | **Sharepoint ToolShell Exploitation** |
+| 07/17/2025 | **Sharepoint ToolShell Exploitation** |
 | 07/22/2025 | [Patch, Persist, Repeat: How ToolShell Is Bypassing SharePoint Defenses](https://securitybuzz.com/cybersecurity-news/patch-persist-repeat-how-toolshell-is-bypassing-sharepoint-defenses/) | [Security Buzz](https://securitybuzz.com) |
 | 07/21/2025 | [Microsoft Rushes Emergency Patch for Actively Exploited SharePoint 'ToolShell' Bug](https://www.darkreading.com/remote-workforce/microsoft-rushes-emergency-fix-exploited-sharepoint-toolshell-flaw) | [Dark Reading](https://www.darkreading.com) |
 | 07/21/2025 | [Attackers Exploiting Microsoft SharePoint Vulnerabilities](https://www.channelfutures.com/security/attackers-exploiting-microsoft-sharepoint-vulnerabilities) | [Channel Futures](https://www.channelfutures.com) |
