@@ -9,6 +9,8 @@ permalink: /media/
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 08/27/2025 | **Infostealers** |
+| 08/27/2025 | [The Silent Smash-and-Grab Driving Modern Cybercrime](https://www.securityweek.com/infostealers-the-silent-smash-and-grab-driving-modern-cybercrime/) | [SecurityWeek](https://www.securityweek.com) |
 | 07/17/2025 | **Sharepoint ToolShell Exploitation** |
 | 07/22/2025 | [Patch, Persist, Repeat: How ToolShell Is Bypassing SharePoint Defenses](https://securitybuzz.com/cybersecurity-news/patch-persist-repeat-how-toolshell-is-bypassing-sharepoint-defenses/) | [Security Buzz](https://securitybuzz.com) |
 | 07/21/2025 | [Microsoft Rushes Emergency Patch for Actively Exploited SharePoint 'ToolShell' Bug](https://www.darkreading.com/remote-workforce/microsoft-rushes-emergency-fix-exploited-sharepoint-toolshell-flaw) | [Dark Reading](https://www.darkreading.com) |
