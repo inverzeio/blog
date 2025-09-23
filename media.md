@@ -5,11 +5,11 @@ permalink: /media/
 ---
 ------------
 
-### Media Appearances, Publications and Conference Talks - Total: 105
+### Media Appearances, Publications and Conference Talks - Total: 131
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
-| 09/23/2025 | **1H 2025 Threat Intelligence Report** |
+| 09/23/2025 | **1H 2025 Threat Intelligence Report (7 publications)** |
 | 09/23/2025 | [New Attack Tactics Look to Bypass MFA and Target Security Blindspots](https://betanews.com/2025/09/23/new-attack-tactics-look-to-bypass-mfa-and-target-security-blindspots/) | [Beta News](https://betanews.com) |
 | 09/23/2025 | [Threat Actors Turning to MFA Bypass, USB Malware and Supply Chain Attacks](https://www.scworld.com/news/threat-actors-turning-to-mfa-bypass-usb-malware-and-supply-chain-attacks) | [SC World](https://www.scworld.com) |
 | 09/23/2025 | [Ransomware Retreats, But Cyber Threats Deepen in 2025](https://informationsecuritybuzz.com/ransomware-retreats-but-cyber-threats-deepen-in-2025/) | [Information Security Buzz](https://informationsecuritybuzz.com) |
@@ -17,16 +17,16 @@ permalink: /media/
 | 09/23/2025 | [Cyber Threats in 2025: Why Identity, Cloud Persistence, and Old-School Malware Still Matter](https://www.ontinue.com/resource/blog-ontinue-report-cyber-threats-in-1h-2025/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 09/23/2025 | [Press Release: Ontinue 1H 2025 Threat Intelligence Report Highlights Rise of MFA-Breaking Identity Attacks and Exploitation of Overlooked Gaps](https://www.ontinue.com/ontinue-1h-2025-threat-intelligence-report/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 09/23/2025 | [1H 2025 Threat Intelligence Report](https://www.ontinue.com/wp-content/uploads/2025/09/2025_1H-Threat-Intelligence-Report.pdf) | [Ontinue Resources](https://www.ontinue.com/resources/) |
-| 08/27/2025 | **Infostealers** |
+| 08/27/2025 | **Infostealers (1 publication)** |
 | 08/27/2025 | [The Silent Smash-and-Grab Driving Modern Cybercrime](https://www.securityweek.com/infostealers-the-silent-smash-and-grab-driving-modern-cybercrime/) | [SecurityWeek](https://www.securityweek.com) |
-| 07/17/2025 | **Sharepoint ToolShell Exploitation** |
+| 07/17/2025 | **Sharepoint ToolShell Exploitation (6 publications)** |
 | 07/22/2025 | [Patch, Persist, Repeat: How ToolShell Is Bypassing SharePoint Defenses](https://securitybuzz.com/cybersecurity-news/patch-persist-repeat-how-toolshell-is-bypassing-sharepoint-defenses/) | [Security Buzz](https://securitybuzz.com) |
 | 07/21/2025 | [Microsoft Rushes Emergency Patch for Actively Exploited SharePoint 'ToolShell' Bug](https://www.darkreading.com/remote-workforce/microsoft-rushes-emergency-fix-exploited-sharepoint-toolshell-flaw) | [Dark Reading](https://www.darkreading.com) |
 | 07/21/2025 | [Attackers Exploiting Microsoft SharePoint Vulnerabilities](https://www.channelfutures.com/security/attackers-exploiting-microsoft-sharepoint-vulnerabilities) | [Channel Futures](https://www.channelfutures.com) |
 | 07/21/2025 | [ToolShell Exploitation Escalates: Unpatched SharePoint Flaw Opens the Door to Full Server Takeover](https://informationsecuritybuzz.com/toolshell-exploitation-escalates-unpatched-sharepoint-flaw-opens-the-door-to-full-server-takeover/) | [Information Security Buzz](https://informationsecuritybuzz.com) |
 | 07/21/2025 | [Microsoft Issues Critical Alert on SharePoint Server Flaws CVE-2025-53770 and CVE-2025-53771](https://www.technadu.com/microsoft-issues-critical-alert-on-sharepoint-server-flaws-cve-2025-53770-and-cve-2025-53771/603576/) | [Tech Nadu](https://www.technadu.com) |
 | 07/17/2025 | [CVE-2025-53770 “ToolShell” – Active SharePoint Zero Day](https://www.ontinue.com/resource/toolshell-active-sharepoint-zero-day/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
-| 07/11/2025 | **SVG Smuggling** |
+| 07/11/2025 | **SVG Smuggling (12 publications)** |
 | 07/17/2025 | [SMUGGLERS RUN — Hackers are increasingly exploiting scalable vector graphic image files](https://login.politicopro.com/?redirect=https://subscriber.politicopro.com/newsletter/2025/07/signalgates-pentagon-legacy-00455210) | [PoliticoPro](https://login.politicopro.com) |
 | 07/17/2025 | [Stop Treating SVG Image Files as Harmless or be Caught Out in Phishing Attacks](https://www.techfinitive.com/stop-treating-svg-image-files-as-harmless-or-be-caught-out-in-phishing-attacks/) | [TechFinitive](https://www.techfinitive.com/) |
 | 07/16/2025 | [Delete Any Emails That Include These Images On Your Phone Or PC](https://www.forbes.com/sites/zakdoffman/2025/07/16/delete-any-emails-on-your-phone-or-pc-that-include-these-images/) | [**Forbes.com**](https://www.forbes.com) |
