@@ -12,7 +12,6 @@ permalink: /media/
 | 09/23/2025 | **1H 2025 Threat Intelligence Report** |
 | 09/23/2025 | [New Attack Tactics Look to Bypass MFA and Target Security Blindspots](https://betanews.com/2025/09/23/new-attack-tactics-look-to-bypass-mfa-and-target-security-blindspots/) | [Beta News](https://betanews.com) |
 | 09/23/2025 | [Threat Actors Turning to MFA Bypass, USB Malware and Supply Chain Attacks](https://www.scworld.com/news/threat-actors-turning-to-mfa-bypass-usb-malware-and-supply-chain-attacks) | [SC World](https://www.scworld.com) |
-| 09/23/2025 | [Threat Actors Turning to MFA Bypass, USB Malware and Supply Chain Attacks](http) | [s](s/) |
 | 09/23/2025 | [Ransomware Retreats, But Cyber Threats Deepen in 2025](https://informationsecuritybuzz.com/ransomware-retreats-but-cyber-threats-deepen-in-2025/) | [Information Security Buzz](https://informationsecuritybuzz.com) |
 | 09/23/2025 | [Identity Attacks and USB Malware Are Rising in 2025, New Report Highlights](https://www.technadu.com/identity-attacks-and-usb-malware-are-rising-in-2025-new-report-highlights/610406/) | [Tech Nadu](https://www.technadu.com) |
 | 09/23/2025 | [Cyber Threats in 2025: Why Identity, Cloud Persistence, and Old-School Malware Still Matter](https://www.ontinue.com/resource/blog-ontinue-report-cyber-threats-in-1h-2025/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
