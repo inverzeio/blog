@@ -9,6 +9,7 @@ permalink: /media/
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+| 10/27/2025 | [Three Factors Determine Whether a Ransomware Group is Successful](https://securityboulevard.com/2025/10/three-factors-determine-whether-a-ransomware-group-is-successful/) | [Security Boulevard](https://securityboulevard.com)
 | 09/23/2025 | **1H 2025 Threat Intelligence Report (7 publications)** |
 | 09/23/2025 | [New Attack Tactics Look to Bypass MFA and Target Security Blindspots](https://betanews.com/2025/09/23/new-attack-tactics-look-to-bypass-mfa-and-target-security-blindspots/) | [Beta News](https://betanews.com) |
 | 09/23/2025 | [Threat Actors Turning to MFA Bypass, USB Malware and Supply Chain Attacks](https://www.scworld.com/news/threat-actors-turning-to-mfa-bypass-usb-malware-and-supply-chain-attacks) | [SC World](https://www.scworld.com) |
