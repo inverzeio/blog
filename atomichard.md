@@ -37,13 +37,102 @@ It's worthwhile to build habits around this loop. New habits form best if they a
 Life is what you put into it. Consistency matters.
 
 |＃| 📆     | 🍽️💧😴💊| 🏋️🚴⏱️ | 📖🙇👂| ✍️🧑‍💻 | 🗣️➕🗄️ | 👍📸 | 📝 |
-|--| ----- | ------- | ------- | ------| ---- | ------- | ---- | -- |
-| 1 | 1 Jan | ❌✅✅✅| ❌✅❌ | ✅✅✅| ✅✅ | ✅✅✅ | ✅✅ | Great start of the Year! Wrote the system. Ate before writing down a rule. 100 mins walking outside. Need to add exercise snacks. |
-| 1 | 2 Jan | 
-| 2 | 
-| 75|  
+|--| ------ | ------- | ------- | ------| ---- | ------- | ---- | -- |
+| 1 | 2 Jan | ✅✅❌✅| ❌✅✅ | ✅✅✅| ✅✅ | ✅✅✅ | ✅✅ | ✅ |
+| 1 | 1 Jan | ❌✅✅✅| ❌✅❌ | ✅✅✅| ✅✅ | ✅✅✅ | ✅✅ | ✅ |
 
-### Full Breakdown of Goals and Habits I want
+# Journal
+
+| 📆    | 📝 |
+| ---   | --- |
+| 2 Jan | Could have slept better, but generally feeling great. Lots of tweaks to the System. |
+| 1 Jan | Great start of the Year! Wrote the system. Ate before writing down a rule. 100 mins walking outside. Need to add exercise snacks.    |
+
+# Health Metrics
+Mostly Tracking in Smartphone.
+
+## Daily Health Metrics
+Seeing deviations here can help to keep you on track. 
+Temperature / RHR / Blood Pressure raised? → Focus resting well → less likely to get sick.
+
+### Resting Heart Rate(RHR) before Sleep
+- Under 60
+
+### Hours Slept
+- 7 Hours
+
+### Activity Goals
+- Standing / Walking in at least 12 hours to break sedentary lifestyle
+- At least 90 Active minutes per day
+- At least 1000 Active Calories burned
+
+### Blood Pressure after wakeup
+- Healthy range
+
+### Watch based ECG 
+ - No anomalies 
+
+### Cardio Recovery
+- Should generally improve if your Rest and Training is in order
+
+### Weight
+- Small fluctuations aren't important, but no Yo-Yo effect.
+	- Concepts of [Caloric Density](https://www.noom.com/blog/calorie-density/), and macros are clear → just feel for it instead of calorie counting. 1 long training and how you fuel influences more than 
+
+### Wrist Temperature
+- Small changes are normal through temperature
+
+### Forehead Temperature after wakeup
+- More accurate
+
+### Respiratory Rate
+- How well the body is delivering O2 and removing CO2, key indicator of overall health. Abnormality can be an early signal before other vital change.
+
+
+## Quarterly Health Metrics
+
+
+
+## Annual Health Metrics
+
+### Total Body Water(L)
+
+### Protein(kg)
+
+### Minerals(kg)
+
+### Body Fat Mass(kg)
+
+### Height(cm)
+
+### Target Weight(kg)
+
+### Weight Control(kg)
+
+### Skeletal Muscle Mass(SMM kg)
+
+### Body Mass Index(BMI)
+
+### Fat Mass Index (FMI)
+
+### Percent Body Fat(PBF%)
+- **Men:** 10–20%
+- **Women:** 18–28%
+
+### Lean Body Mass
+
+### Visceral Fat Area(cm²)
+- be in the lower range < 60 cm²
+
+### Segmential Lean Analysis
+- Regional Lean Mess helps spotting muscle imbalances(injury, asymmetry etc.)
+
+### Bone Mineral Density (BMD) T-score
+- –1 or higher, your bone is healthy.
+
+
+==Full Breakdown of Goals and Habits I want==
+
 
 # Body
 
