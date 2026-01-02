@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Atomic Hard
+title: atomic hard
 permalink: /atomichard/
 ---
 ------------
