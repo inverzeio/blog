@@ -38,6 +38,8 @@ Life is what you put into it. Consistency matters.
 
 |＃| 📆     | 🍽️💧😴💊| 🏋️🚴⏱️ | 📖🙇👂| ✍️🧑‍💻 | 🗣️➕🗄️ | 👍📸 | 📝 |
 |--| ------ | ------- | ------- | ------| ---- | ------- | ---- | -- |
+| 1 | 4 Jan | ❌✅✅✅| ✅❌✅ | ✅✅✅| ✅✅ | ❌✅✅ | ❌✅ | ✅ |
+| 1 | 3 Jan | ✅✅❌✅| ✅✅✅ | ✅✅✅| ✅✅ | ✅✅✅ | ✅✅ | ✅ |
 | 1 | 2 Jan | ✅✅❌✅| ❌✅✅ | ✅✅✅| ✅✅ | ✅✅✅ | ✅✅ | ✅ |
 | 1 | 1 Jan | ❌✅✅✅| ❌✅❌ | ✅✅✅| ✅✅ | ✅✅✅ | ✅✅ | ✅ |
 
@@ -45,6 +47,8 @@ Life is what you put into it. Consistency matters.
 
 | 📆    | 📝 |
 | ---   | --- |
+| 4 Jan | When my sleep gets out of sync(NYE) it takes a few days to fix it. Not happy about that. Some food choices didnt follow the diet.  |
+| 3 Jan | Another day weith sleep issue. Swimming and walking was great. Generally a great day. |
 | 2 Jan | Could have slept better, but generally feeling great. Lots of tweaks to the System. |
 | 1 Jan | Great start of the Year! Wrote the system. Ate before writing down a rule. 100 mins walking outside. Need to add exercise snacks.    |
 
@@ -136,7 +140,7 @@ Temperature / RHR / Blood Pressure raised? → Focus resting well → less likel
 
 # Body
 
-## Bodily Identity - Who am I?
+## Bodily Identity - What am I?
 
 - I am healthy
 - I am best when focused, energized and well-rested
