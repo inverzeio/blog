@@ -12,6 +12,7 @@ permalink: /media/
 | 02/23/2026 | **Shai Hulud 2.0 Microsoft Podcast** |
 | 02/23/2026 | [Microsoft Defender Experts - S.T.A.R. Forum - Episode 6 - Shai Hulud 2.0: Breaking the Supply Chain Chaos Engine](https://www.youtube.com/watch?v=QCsrrwYjZKc) | [Microsoft Security Community Youtube](https://www.youtube.com/@MicrosoftSecurityCommunity) |
 | 10/27/2025 | **Ransomware Predictions 2026** |
+| 02/23/2026 | [Ransomware payments dropped in 2025 as attack numbers reached record levels](https://therecord.media/ransomware-payments-chainalysis-cybercrime) |  [The Record](https://therecord.media)
 | 10/27/2025 | [Three Factors Determine Whether a Ransomware Group is Successful](https://securityboulevard.com/2025/10/three-factors-determine-whether-a-ransomware-group-is-successful/) | [Security Boulevard](https://securityboulevard.com)
 | 09/23/2025 | **1H 2025 Threat Intelligence Report (7 publications)** |
 | 09/23/2025 | [New Attack Tactics Look to Bypass MFA and Target Security Blindspots](https://betanews.com/2025/09/23/new-attack-tactics-look-to-bypass-mfa-and-target-security-blindspots/) | [Beta News](https://betanews.com) |
