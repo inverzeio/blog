@@ -5,10 +5,15 @@ permalink: /media/
 ---
 ------------
 
-### Media Appearances, Publications and Conference Talks - Total: 131
-
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
+
+| 02/26/2026 | **Ransomware Trends** |
+| 03/18/2026 | [Ransomware Trends Show Why Cyber Pros Need New Skills](https://www.dice.com/career-advice/ransomware-trends-show-why-cyber-pros-need-new-skills) |  [DICE Insights](https://www.dice.com) |
+| 02/26/2026 | [Ransomware Payments Dropped in 2025 as Attack Numbers Reached Record Levels: Chainalysis](https://therecord.media/ransomware-payments-chainalysis-cybercrime) | [The Record](https://therecord.media) |
+| 02/24/2026 | **Generative AI in Malware Development: VoidLink C2 Implant** |
+| 02/24/2026 | [How VoidLink Signals the Dawn of Machine-Built Malware](https://securitybuzz.com/cybersecurity-news/how-voidlink-signals-the-dawn-of-machine-built-malware/) | [Security Buzz](https://securitybuzz.com) |
+| 02/24/2026 | [VoidLink: Dissecting an AI-Generated C2 Implant](https://www.ontinue.com/resource/voidlink-dissecting-an-ai-generated-c2-implant/) [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 02/23/2026 | **Shai Hulud 2.0 Microsoft Podcast** |
 | 02/23/2026 | [Microsoft Defender Experts - S.T.A.R. Forum - Episode 6 - Shai Hulud 2.0: Breaking the Supply Chain Chaos Engine](https://www.youtube.com/watch?v=QCsrrwYjZKc) | [Microsoft Security Community Youtube](https://www.youtube.com/@MicrosoftSecurityCommunity) |
 | 10/27/2025 | **Ransomware Predictions 2026** |
