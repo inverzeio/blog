@@ -21,6 +21,9 @@ permalink: /media/
 | 03/30/2026 | [Ontinue Threat Intelligence Report Reveals Attackers Increasingly “Log In,” Rather Than Breaking In](https://coinatoms.com/news/ontinue-threat-intelligence-report-reveals-attackers-increasingly-log-in-rather-than-breaking-in/) | [Coin Atoms](https://coinatoms.com) |
 | 03/27/2026 | [Press Release: Ontinue 1H 2025 Threat Intelligence Report Reveals Attackers Increasingly “Log In,” Rather Than Breaking In](https://www.ontinue.com/ontinue-2h-2025-threat-intel-report/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 03/27/2026 | [2H 2025 Threat Intelligence Report](https://www.ontinue.com/wp-content/uploads/2026/03/2026_2H2025-Threat-Intelligence-Report.pdf) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 02/24/2026 | **Generative AI in Malware Development: VoidLink C2 Implant** |
+| 02/24/2026 | [How VoidLink Signals the Dawn of Machine-Built Malware](https://securitybuzz.com/cybersecurity-news/how-voidlink-signals-the-dawn-of-machine-built-malware/) | [Security Buzz](https://securitybuzz.com/) |
+| 02/24/2026 | [VoidLink: Dissecting an AI-Generated C2 Implant](https://www.ontinue.com/resource/voidlink-dissecting-an-ai-generated-c2-implant/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
 | 02/23/2026 | **Shai Hulud 2.0 Podcast** |
 | 02/23/2026 | [Microsoft Defender Experts - S.T.A.R. Forum - Episode 6 - Shai Hulud 2.0: Breaking the Supply Chain Chaos Engine](https://www.youtube.com/watch?v=QCsrrwYjZKc) | [Microsoft Security Community Youtube](https://www.youtube.com/@MicrosoftSecurityCommunity) |
 | 10/27/2025 | **Ransomware Predictions 2026** |
