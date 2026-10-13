@@ -7,17 +7,26 @@ permalink: /media/
 
 | Date | Topic | Publisher |
 | ------------- | :------------- | :------------- |
-
-| 02/26/2026 | **Ransomware Trends** |
-| 03/18/2026 | [Ransomware Trends Show Why Cyber Pros Need New Skills](https://www.dice.com/career-advice/ransomware-trends-show-why-cyber-pros-need-new-skills) |  [DICE Insights](https://www.dice.com) |
-| 02/26/2026 | [Ransomware Payments Dropped in 2025 as Attack Numbers Reached Record Levels: Chainalysis](https://therecord.media/ransomware-payments-chainalysis-cybercrime) | [The Record](https://therecord.media) |
-| 02/24/2026 | **Generative AI in Malware Development: VoidLink C2 Implant** |
-| 02/24/2026 | [How VoidLink Signals the Dawn of Machine-Built Malware](https://securitybuzz.com/cybersecurity-news/how-voidlink-signals-the-dawn-of-machine-built-malware/) | [Security Buzz](https://securitybuzz.com) |
-| 02/24/2026 | [VoidLink: Dissecting an AI-Generated C2 Implant](https://www.ontinue.com/resource/voidlink-dissecting-an-ai-generated-c2-implant/) [Ontinue Resources](https://www.ontinue.com/resources/) |
-| 02/23/2026 | **Shai Hulud 2.0 Microsoft Podcast** |
+| 10/13/2026 | **1H 2026 Threat Intelligence Report - Cybercriminals Are Scaling Faster Than Defenders as the Cost of Attack Continues to Fall** |
+| 10/13/2026 | [Press Release: The Biggest Cybersecurity Threats of 2026 Are Hiding in Plain Sight](https://www.ontinue.com/resource/blog-biggest-cyber-threats-are-hiding-in-plain-sight/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 10/13/2026 | [1H 2026 Threat Intelligence Report PDF](https://www.ontinue.com/wp-content/uploads/2026/03/2026_2H2025-Threat-Intelligence-Report.pdf) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 10/13/2026 | [1H 2026 Threat Intelligence Report WEB](https://www.ontinue.com/1h2026threatintelligencereport/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 03/27/2026 | **2H 2025 Threat Intelligence Report (10 publications)** |
+| 04/09/2026 | [Privacy Tip #486 – “Stolen Credentials Are a Major Threat”](https://natlawreview.com/article/privacy-tip-486-stolen-credentials-are-major-threat) | 
+| 03/31/2026 | [Stolen Logins Are Fueling Everything From Ransomware to Nation-State Cyberattacks](https://www.securityweek.com/stolen-logins-are-fueling-everything-from-ransomware-to-nation-state-cyberattacks/) | [Security Week](https://www.securityweek.com) |
+| 03/30/2026 | [The Skeleton Key Era: Attackers Are Logging In, Not Breaking In](https://www.secureworld.io/industry-news/skeleton-key-era-attackers-logging-in) | [SecureWorld](https://www.secureworld.io) |
+| 03/30/2026 | [Ontinue Threat Intelligence Report Reveals Attackers Increasingly “Log In,” Rather Than Breaking In #ransomware #cybercrime](https://nationalcybersecurity.com/ontinue-threat-intelligence-report-reveals-attackers-increasingly-log-in-rather-than-breaking-in-ransomware-cybercrime/) | [National Cyber Security](https://nationalcybersecurity.com) | [National Law Review](https://natlawreview.com) |
+| 03/30/2026 | [Ontinue Threat Intelligence Report Reveals Attackers Increasingly "Log In," Rather Than Breaking In](https://finance.yahoo.com/sectors/technology/articles/ontinue-threat-intelligence-report-reveals-073000823.html) | [Yahoo Finance](https://finance.yahoo.com) |
+| 03/30/2026 | [Ontinue 2H 2025 Threat Intelligence Report Released](https://digitalitnews.com/ontinue-2h-2025-threat-intelligence-report-released/) | [Digital IT News](https://digitalitnews.com) |
+| 03/30/2026 | [Ontinue Threat Intelligence Report Reveals Attackers Increasingly “Log In,” Rather Than Breaking In](https://coinatoms.com/news/ontinue-threat-intelligence-report-reveals-attackers-increasingly-log-in-rather-than-breaking-in/) | [Coin Atoms](https://coinatoms.com) |
+| 03/27/2026 | [Press Release: Ontinue 1H 2025 Threat Intelligence Report Reveals Attackers Increasingly “Log In,” Rather Than Breaking In](https://www.ontinue.com/ontinue-2h-2025-threat-intel-report/) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 03/27/2026 | [2H 2025 Threat Intelligence Report](https://www.ontinue.com/wp-content/uploads/2026/03/2026_2H2025-Threat-Intelligence-Report.pdf) | [Ontinue Resources](https://www.ontinue.com/resources/) |
+| 02/23/2026 | **Shai Hulud 2.0 Podcast** |
 | 02/23/2026 | [Microsoft Defender Experts - S.T.A.R. Forum - Episode 6 - Shai Hulud 2.0: Breaking the Supply Chain Chaos Engine](https://www.youtube.com/watch?v=QCsrrwYjZKc) | [Microsoft Security Community Youtube](https://www.youtube.com/@MicrosoftSecurityCommunity) |
 | 10/27/2025 | **Ransomware Predictions 2026** |
+| 03/18/2026 | [Ransomware Trends Show Why Cyber Pros Need New Skills](https://www.dice.com/career-advice/ransomware-trends-show-why-cyber-pros-need-new-skills) |  [DICE Insights](https://www.dice.com) |
 | 02/26/2026 | [Ransomware payments dropped in 2025 as attack numbers reached record levels](https://therecord.media/ransomware-payments-chainalysis-cybercrime) |  [The Record](https://therecord.media)
+| 02/26/2026 | [Ransomware Payments Dropped in 2025 as Attack Numbers Reached Record Levels: Chainalysis](https://therecord.media/ransomware-payments-chainalysis-cybercrime) | [The Record](https://therecord.media) |
 | 10/27/2025 | [Three Factors Determine Whether a Ransomware Group is Successful](https://securityboulevard.com/2025/10/three-factors-determine-whether-a-ransomware-group-is-successful/) | [Security Boulevard](https://securityboulevard.com)
 | 09/23/2025 | **1H 2025 Threat Intelligence Report (7 publications)** |
 | 09/23/2025 | [New Attack Tactics Look to Bypass MFA and Target Security Blindspots](https://betanews.com/2025/09/23/new-attack-tactics-look-to-bypass-mfa-and-target-security-blindspots/) | [Beta News](https://betanews.com) |
