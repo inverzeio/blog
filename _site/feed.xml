@@ -608,6 +608,7 @@ C:.
 &lt;p&gt;The differences are where malicious content is embedded, starting from RCDATA.&lt;/p&gt;
 
 &lt;p&gt;A more elegant way to explore this is with Resource Hacker:
+<!-- Alternative: Resource Cracker https://www.pelock.com/products/resource-cracker -->
 &lt;img src=&quot;/assets/img/zloader_resourcehacker.png&quot; alt=&quot;zloader_resourcehacker&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We got the answer that the malware is actually bundled together with the legitimate C:\Windows\System32\wextract.exe Windows binary.&lt;/p&gt;
